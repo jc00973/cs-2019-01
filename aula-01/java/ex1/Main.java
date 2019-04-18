@@ -7,11 +7,7 @@ public class Main {
         int i = n / 100;
         int j = n % 100;
 
-        if (Math.pow((i + j), 2) == n) {
-            return true;
-        } else {
-            return false;
-        }
+        return Math.pow((i + j), 2) == n;
     }
 
     public static void main(String arg[]) {
