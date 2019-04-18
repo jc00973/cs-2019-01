@@ -1,6 +1,6 @@
 package com.github.jc00973.cs.aula1;
 
-public class ex4 {
+public class Ex4 {
 
     public static int mod(int x, int y) {
 
