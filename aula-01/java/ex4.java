@@ -6,7 +6,7 @@ public class ex4 {
 		
 		int s = x;
 		
-		while(y<=s) {
+		while(s >= y) {
 			s = s-y;
 		}
 		
