@@ -8,10 +8,8 @@ public class Main {
         int j = n % 100;
 
         if (Math.pow((i + j), 2) == n) {
-            System.out.println("true");
             return true;
         } else {
-            System.out.println("false");
             return false;
         }
     }
