@@ -17,7 +17,7 @@ public class ex21 {
 		int j = ((s%11)%10);
 		int k = (((s-p+9*d[10])%11)%10);
 		
-		return ((j==d[10])&&(k==d[11]));
+		return (j==d[10])&&(k==d[11]);
 	}
 	
 	public static void main(String args[]) {

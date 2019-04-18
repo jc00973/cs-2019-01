@@ -5,7 +5,7 @@ public class ex15 {
 	public static void crivoEratostenes(int a[], int n) {
 		
 		int i = 2;
-		double limite = Math.abs(Math.sqrt(n));
+		double limite = Math.floor(Math.sqrt(n));
 		
 		while(i<=limite) {
 			if(a[i]==0) {
