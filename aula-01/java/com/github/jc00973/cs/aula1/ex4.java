@@ -1,4 +1,4 @@
-package ex4;
+package com.github.jc00973.cs.aula1;
 
 public class ex4 {
 
