@@ -21,7 +21,7 @@ public class Ex21 {
 	}
 	
 	public static void main(String args[]) {
-		int teste[] = {0, 0, 0, 1, 7, 5, 5, 0, 6, 2, 9, 9};
+		int[] teste = {0, 0, 0, 1, 7, 5, 5, 0, 6, 2, 9, 9};
 		System.out.println(cpf2(teste));
 	}
 
