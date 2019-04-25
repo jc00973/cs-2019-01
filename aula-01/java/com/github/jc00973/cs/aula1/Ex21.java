@@ -1,6 +1,6 @@
 package com.github.jc00973.cs.aula1;
 
-public class ex21 {
+public class Ex21 {
 	
 	public static boolean cpf2(int d[]) {
 		
