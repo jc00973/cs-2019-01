@@ -1,6 +1,6 @@
-package ex3;
+package com.github.jc00973.cs.aula1.java;
 
-public class ex6 {
+public class Exercicio06 {
 	
 	public static int fatorial(int n) {
 		
@@ -13,9 +13,5 @@ public class ex6 {
 		}
 		
 		return f;
-	}
-	
-	public static void main(String args[]) {
-		System.out.println(fatorial(4));
 	}
 }
