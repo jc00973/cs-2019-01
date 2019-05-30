@@ -4,6 +4,10 @@ test("razão áurea", () => {
     expect(funcoes.razaoAurea(1, 2, 1000)).toBe(1.6180339887498947);
 });
 
+test("razão áurea", () => {
+    expect(funcoes.razaoAurea(3, 7, 1000)).toBe(1.618033988749895);
+});
+
 test("argumento null/undefined", () => {
     expect(() => { funcoes.razaoAurea(); }).toThrow();
 });
