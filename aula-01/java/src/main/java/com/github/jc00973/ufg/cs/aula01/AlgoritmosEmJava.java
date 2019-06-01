@@ -1,8 +1,59 @@
-package java;
+package com.github.jc00973.ufg.cs.aula01;
 
-public class AlgoritmosEmJava {
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.util.Arrays;
+
+
+/**
+ *
+ * @author João Carlos Fonseca
+ */
+
+public final class AlgoritmosEmJava {
+
+    private AlgoritmosEmJava() {};
+
+    public static void validarParametroMin(int parametro, int valorMinimo) {
+
+        if (parametro < valorMinimo) {
+            throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
+        }
+
+    }
+
+    public static void validarParametroMinDouble(double parametro, double valorMinimo) {
+
+        if (parametro < valorMinimo) {
+            throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
+        }
+
+    }
+
+    public static void validarParametro(int parametro, int valorMinimo, int valorMaximo) {
+
+        if (parametro < valorMinimo || parametro > valorMaximo) {
+            throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
+        }
+
+    }
+
+    public static void validarVetorCrivo(int vetor[], int n){
+
+        int i = 2;
+
+        while(i <= n){
+            if(vetor[i] == 0){
+                i++;
+            }else{
+                throw new IllegalArgumentException("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos.");
+            }
+        }
+    }
 
     public static boolean propriedade3025(int n) {
+
+        validarParametro(n, 0, 9999);
 
         int i = n / 100;
         int j = n % 100;
@@ -11,6 +62,8 @@ public class AlgoritmosEmJava {
     }
 
     public static boolean propriedade153(int n) {
+
+        validarParametro(n, 100, 999);
 
         int c = n / 100;
         int du = n % 100;
@@ -26,6 +79,10 @@ public class AlgoritmosEmJava {
 
     public static double diaDaSemana(int d, int m, int a) {
 
+        validarParametro(d, 1, 31);
+        validarParametro(m, 1, 12);
+        validarParametroMin(a, 1753);
+
         if (m == 1 || m == 2) {
             m = m + 12;
             a = a - 1;
@@ -38,6 +95,9 @@ public class AlgoritmosEmJava {
 
     public static int mod(int x, int y) {
 
+        validarParametroMin(x, 0);
+        validarParametroMin(y, 0);
+
         int s = x;
 
         while (s >= y) {
@@ -48,6 +108,8 @@ public class AlgoritmosEmJava {
     }
 
     public static int soma(int n) {
+
+        validarParametroMin(n, 1);
 
         int i = 2;
         int s = 1;
@@ -62,6 +124,8 @@ public class AlgoritmosEmJava {
 
     public static int fatorial(int n) {
 
+        validarParametroMin(n, 1);
+
         int i = 2;
         int f = 1;
 
@@ -74,6 +138,9 @@ public class AlgoritmosEmJava {
     }
 
     public static int produto(int a, int b) {
+
+        validarParametroMin(a, 0);
+        validarParametroMin(b, 0);
 
         int totalParcelas = a;
         int parcela = b;
@@ -96,6 +163,9 @@ public class AlgoritmosEmJava {
 
     public static int potencia(int x, int y) {
 
+        validarParametroMin(x, 0);
+        validarParametroMin(y, 0);
+
         int potencia = 1;
         int i = 1;
 
@@ -108,6 +178,9 @@ public class AlgoritmosEmJava {
     }
 
     public static double pi(int n) {
+
+        validarParametroMin(n, 1);
+
         double i = 1;
         double s = -1;
         double d = -1;
@@ -124,6 +197,9 @@ public class AlgoritmosEmJava {
     }
 
     public static float logaritmoNatural(int n, int k) {
+
+        validarParametroMin(n, 1);
+        validarParametroMin(k, 2);
 
         float i = 2;
         float e = 1 + n;
@@ -143,6 +219,10 @@ public class AlgoritmosEmJava {
 
     public static double razaoAurea(int x, int y, int k) {
 
+        validarParametroMin(x, 0);
+        validarParametroMin(y, x + 1);
+        validarParametroMin(k, 1);
+
         double c = y;
         double a = x;
         double i = 1;
@@ -159,6 +239,8 @@ public class AlgoritmosEmJava {
 
     public static boolean quadradoPerfeito(int n) {
 
+        validarParametroMin(n, 1);
+
         int i = 1;
         int s = 1;
 
@@ -172,6 +254,8 @@ public class AlgoritmosEmJava {
 
     public static double raiz(double n, double i) {
 
+        validarParametroMinDouble(n, 1);
+
         double r = 1;
 
         while (0 <= i) {
@@ -183,6 +267,8 @@ public class AlgoritmosEmJava {
     }
 
     public static boolean primo(int n) {
+
+        validarParametroMin(n, 2);
 
         double i = 2;
 
@@ -197,7 +283,10 @@ public class AlgoritmosEmJava {
         return true;
     }
 
-    public static void crivoEratostenes(int a[], int n) {
+    public static boolean crivoEratostenes(int a[], int n) {
+
+        validarParametroMin(n, 2);
+        validarVetorCrivo(a, n);
 
         int i = 2;
         double limite = Math.floor(Math.sqrt(n));
@@ -215,9 +304,14 @@ public class AlgoritmosEmJava {
 
             i = i + 1;
         }
+
+        return a[n] == 0;
     }
 
     public static double mdc(double a, double b) {
+
+        validarParametroMinDouble(b, 1);
+        validarParametroMinDouble(a, b);
 
         while (b != 0) {
             double m = a % b;
@@ -254,6 +348,8 @@ public class AlgoritmosEmJava {
     }
 
     public static int fibonacci(int n) {
+
+        validarParametroMin(n, 0);
 
         int a = 0;
         int c = 1;
