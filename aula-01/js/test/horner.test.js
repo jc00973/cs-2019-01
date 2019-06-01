@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("x = 1, g = 5, a = [1, 1, 1, 1, 1, 0], logo p = 5", () => {
     expect(funcoes.horner(1, 5, [1, 1, 1, 1, 1, 0])).toBe(5);

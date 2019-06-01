@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("n = 1", () => {
     expect(funcoes.soma(1)).toBe(1);

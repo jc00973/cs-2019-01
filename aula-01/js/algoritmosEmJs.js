@@ -1,3 +1,24 @@
+/**
+ *
+ * Implementação em JavaScript dos 21 algoritmos propostos na
+ * aula 01.
+ *
+ */
+
+/**
+ * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é nulo, se
+ * está dentro do intervalo válido de valores, se o valor é um número e se esse número é inteiro.
+ *
+ * @param {number} parametro O parâmetro que será validado.
+ * @param {number} valorMinimo O valor mínimo válido para o parâmetro.
+ * @param {number} valorMaximo O valor máximo válido para o parâmetro.
+ *
+ * @throws {TypeError} Caso o parâmetro seja nulo.
+ * @throws {TypeError} Caso o parâmetro não seja um número.
+ * @throws {TypeError} Caso o parâmetro não seja um número inteiro.
+ * @throws {RangeError} Caso o parâmetro esteja fora do intervalo válido definido.
+ */
+
 function validarParametro(parametro, valorMinimo, valorMaximo) {
     if (parametro == null) {
         throw new TypeError("Parâmetro inválido. O valor é nulo.");
@@ -12,10 +33,24 @@ function validarParametro(parametro, valorMinimo, valorMaximo) {
     }
 
     if (parametro < valorMinimo || parametro > valorMaximo) {
-        throw new RangeError("Parâmetro inválido. O valor está fora do intervalo válido.")
+        throw new RangeError("Parâmetro inválido. O valor está fora do intervalo válido.");
     }
 
 }
+
+/**
+ * A função valida o parâmetro informado como cpf. Essa função verifica se o parâmetro é nulo, se
+ * está dentro do intervalo válido de valores, se o valor é um número, se esse número é inteiro e se
+ * o cpf tem 11 dígitos.
+ *
+ * @param {number} cpf O parâmetro cpf que será validado.
+ *
+ * @throws {TypeError} Caso o parâmetro seja nulo.
+ * @throws {TypeError} Caso o parâmetro não tenha 11 dígitos.
+ * @throws {TypeError} Caso o parâmetro não seja um número.
+ * @throws {TypeError} Caso o parâmetro não seja um número inteiro.
+ * @throws {RangeError} Caso o parâmetro esteja fora do intervalo válido definido.
+ */
 
 function validarCpf(cpf) {
     if (cpf == null) {
@@ -23,7 +58,7 @@ function validarCpf(cpf) {
     }
 
     if (cpf.length != 12) {
-        throw new TypeError("Parâmetro inválido. O valor não tem 11 dígitos.")
+        throw new TypeError("Parâmetro inválido. O valor não tem 11 dígitos.");
     }
 
     var i = 0;
@@ -38,12 +73,22 @@ function validarCpf(cpf) {
         }
 
         if (cpf[i] < 0 || cpf[i] > 9) {
-            throw new RangeError("Parâmetro inválido. O valor está fora do intervalo válido.")
+            throw new RangeError("Parâmetro inválido. O valor está fora do intervalo válido.");
         }
 
         i++;
     }
 }
+
+/**
+ * A função valida o parâmetro informado como vetor para a função crivoEratostenes(). Essa função verifica
+ * se os valores do vetor são iguais a zero para qualquer i que esteja no intervalo 2 ≤ i ≤ n.
+ *
+ * @param {number} vetor O parâmetro vetor que será validado.
+ * @param {number} n Refere-se ao parâmetro n, que indica o tamanho mínimo que o vetor deve ter.
+ *
+ * @throws {TypeError} Caso o vetor não atenda aos requisitos definidos.
+ */
 
 function validarVetorCrivo(vetor, n){
 
@@ -53,10 +98,19 @@ function validarVetorCrivo(vetor, n){
         if(vetor[i] == 0){
             i++;
         }else{
-            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos.")
+            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos.");
         }
     }
 }
+
+/**
+ * Verifica se o parâmetro é um número que apresenta a
+ * propriedade 3025.
+ *
+ * @param {number} n O número que será verificado.
+ *
+ * @returns {boolean} O resultado da verificação.
+ */
 
 function propriedade3025(n) {
 
@@ -67,6 +121,15 @@ function propriedade3025(n) {
 
     return Math.pow((i + j), 2) == n;
 }
+
+/**
+ * Verifica se o parâmetro é um número que apresenta a
+ * propriedade 153.
+ *
+ * @param {number} n O número que será verificado.
+ *
+ * @returns {boolean} O resultado da verificação.
+ */
 
 function propriedade153(n) {
 
@@ -79,6 +142,18 @@ function propriedade153(n) {
 
     return (Math.pow(c, 3) + Math.pow(d, 3) + Math.pow(u, 3)) == n;
 }
+
+/**
+ * Verifica o dia da semana referente a data informada.
+ *
+ * @param {number} d Dia da data.
+ * @param {number} m Mês da data.
+ * @param {number} a Ano da data.
+ *
+ * @returns {number} O número correspondente ao dia
+ * da semana da data, entre 0 e 6. O valor retornado é 0 para
+ * segunda-feira, 1 para terça-feira e assim sucessivamente.
+ */
 
 function diaDaSemana(dia, mes, ano) {
 
@@ -97,6 +172,15 @@ function diaDaSemana(dia, mes, ano) {
     return Math.floor(s % 7);
 }
 
+/**
+ * A função calcula o resto inteiro da divisão (mod) entre os parâmetros.
+ *
+ * @param {number} x Numerador da divisão.
+ * @param {number} y Denominador da divisão.
+ *
+ * @returns {number} O valor do mod.
+ */
+
 function mod(x, y) {
 
     validarParametro(x, 0);
@@ -110,6 +194,15 @@ function mod(x, y) {
 
     return s;
 }
+
+/**
+ * A função realiza a soma de todos os inteiros naturais até o valor inteiro
+ * informado no parâmetro.
+ *
+ * @param {number} n Valor final para a soma.
+ *
+ * @returns {number} O valor do somatório.
+ */
 
 function soma(n) {
 
@@ -126,6 +219,14 @@ function soma(n) {
     return s;
 }
 
+/**
+ * A função calcula o fatorial do número natural informado no parâmetro.
+ *
+ * @param {number} n Número natural que terá o fatorial calculado.
+ *
+ * @returns {number} O fatorial do parâmetro.
+ */
+
 function fatorial(n) {
 
     validarParametro(n, 1);
@@ -141,6 +242,14 @@ function fatorial(n) {
     return f;
 }
 
+/**
+ * A função calcula o produto de dois inteiros usando apenas somas.
+ *
+ * @param {number} a Primeiro inteiro da operação de multiplicação.
+ * @param {number} b Segundo inteiro da operação de multiplicação.
+ *
+ * @returns {number} O produto da operação.
+ */
 function produto(a, b) {
 
     validarParametro(a, 0);
@@ -165,6 +274,16 @@ function produto(a, b) {
     return s;
 }
 
+/**
+ * A função calcula a potência de um número (base) usando apenas somas.
+ * Ela reutiliza a função anterior, produto().
+ *
+ * @param {number} x Base.
+ * @param {number} y Expoente.
+ *
+ * @returns {number} Potência.
+ */
+
 function potencia(x, y) {
 
     validarParametro(x, 0);
@@ -180,6 +299,15 @@ function potencia(x, y) {
 
     return potencia;
 }
+
+/**
+ * A função estima o valor de pi, sendo a precisão do resultado proporcional ao tamanho
+ * do parâmetro.
+ *
+ * @param {number} n Quantidade de termos do somatório.
+ *
+ * @returns {number} Estimativa do valor de pi.
+ */
 
 function pi(n) {
 
@@ -200,6 +328,17 @@ function pi(n) {
     return p;
 }
 
+/**
+ * A função realiza o somatório que estima o valor do logaritmo natural dado um
+ * expoente n qualquer (desde que seja um número natural e positivo). A precisão do
+ * resultado é proporcional ao tamanho do parâmetro k.
+ *
+ * @param n Expoente natural positivo.
+ * @param k Quantidade de termos do somatório.
+ *
+ * @returns {*}
+ */
+
 function logaritmoNatural(n, k) {
 
     validarParametro(n, 1);
@@ -219,6 +358,17 @@ function logaritmoNatural(n, k) {
 
     return e;
 }
+
+/**
+ * A função estima a razão áurea dado dois números inteiros positivos.
+ * A precisão do resultado é proporcional ao tamanho do parâmetro k.
+ *
+ * @param {number} x Primeiro inteiro positivo.
+ * @param {number} y Segundo inteiro positivo.
+ * @param {number} k O número de repetições.
+ *
+ * @returns {number} A estimativa do valor da razão áurea.
+ */
 
 function razaoAurea(x, y, k) {
 
@@ -241,6 +391,14 @@ function razaoAurea(x, y, k) {
     return c / a;
 }
 
+/**
+ * A função retorna verdadeiro se o número fornecido for um quadrado perfeito.
+ *
+ * @param {number} n Número que será verificado.
+ *
+ * @returns {boolean} Resposta para se o número é ou não um quadrado perfeito.
+ */
+
 function quadradoPerfeito(n) {
 
     validarParametro(n, 1);
@@ -256,6 +414,16 @@ function quadradoPerfeito(n) {
     return s == n;
 }
 
+/**
+ * A função é para extração da raiz quadrada. Quanto maior o valor de i mais preciso
+ * é o valor da raiz desejada.
+ *
+ * @param {number} n Número o qual deseja-se extrair a raíz quadrada.
+ * @param {number} i Quantidade de repetições para definição da precisão desejada.
+ *
+ * @returns {number} Raíz quadrada de n.
+ */
+
 function raiz(n, i) {
 
     validarParametro(n, 1);
@@ -269,6 +437,14 @@ function raiz(n, i) {
 
     return r;
 }
+
+/**
+ * A função verifica de n é um número primo.
+ *
+ * @param {number} n Número que deseja-se saber se é primo.
+ *
+ * @returns {boolean} Resultado da verificação sobre o n ser ou não um número primo.
+ */
 
 function primo(n) {
 
@@ -284,10 +460,20 @@ function primo(n) {
     return true;
 }
 
+/**
+ * A função implementa um método de determinação de números primos.
+ *
+ * @param {number} a Array contendo apenas zeros, devendo a quantidade de elementos
+ * ser maior ou igual ao parâmetro n.
+ * @param {number} n Número o qual deseja-se saber se é primo ou não.
+ *
+ * @returns {boolean} Resultado da verificação sobre o n ser ou não um número primo.
+ */
+
 function crivoEratostenes(a, n) {
 
     validarParametro(n, 2);
-    validarVetorCrivo(a);
+    validarVetorCrivo(a, n);
 
     var i = 2;
     var limite = Math.floor(Math.sqrt(n));
@@ -309,6 +495,15 @@ function crivoEratostenes(a, n) {
     return a[n] == 0;
 }
 
+/**
+ * Função para identificar o maior divisor comum entre dois inteiros.
+ *
+ * @param {number} a Primeiro inteiro.
+ * @param {number} b Segundo inteiro.
+ *
+ * @returns {number} O maior divisor comum entre os dois inteiros informados.
+ */
+
 function mdc(a, b) {
 
     validarParametro(b, 1);
@@ -321,8 +516,18 @@ function mdc(a, b) {
     }
 
     return a;
-
 }
+
+/**
+ * Função para identificar o maior divisor comum entre dois inteiros, assim como a
+ * função anterior. No entanto, este algoritmo limita-se ao uso de subtrações para
+ * calcular o resultado.
+ *
+ * @param {number} a Primeiro inteiro.
+ * @param {number} b Segundo inteiro.
+ *
+ * @returns {number} O maior divisor comum entre os dois inteiros informados.
+ */
 
 function mdc2(a, b) {
 
@@ -340,6 +545,16 @@ function mdc2(a, b) {
     return a;
 }
 
+/**
+ * A função realiza a avaliação de um polinômio para um valor especifco de x.
+ *
+ * @param {number} x Valor x do polinômio.
+ * @param {number} g Quantidade de elementos a do polinômio.
+ * @param {number} a Array com os elementos a do polinômio.
+ *
+ * @returns {number} O resultado do polinômio.
+ */
+
 function horner(x, g, a) {
 
     validarParametro(x);
@@ -355,6 +570,16 @@ function horner(x, g, a) {
 
     return p;
 }
+
+/**
+ * A função é uma proposta de obtenção do n-ésimo número de Fibonacci
+ * (versão não recursiva).
+ *
+ * @param {number} n Valor correspondente à posição que deseja-se saber o valor na
+ * sequência de Fibonacci.
+ *
+ * @returns {number} O n-ésimo número de Fibonacci.
+ */
 
 function fibonacci(n) {
 
@@ -380,6 +605,14 @@ function fibonacci(n) {
     return c;
 }
 
+/**
+ * Função validadora de número de cpf.
+ *
+ * @param {number} d Array de inteiros correspondentes aos dígitos do cpf.
+ *
+ * @returns {boolean} Resultado da verificação de se cpf é ou não válido.
+ */
+
 function cpf(d) {
 
     validarCpf(d);
@@ -392,6 +625,15 @@ function cpf(d) {
 
     return (dj == d[10] && dk == d[11]);
 }
+
+/**
+ * Função validadora de número de cpf. No entando, diferente da anterior, já que
+ * utiliza uma estratégia similar a empregada na função horner().
+ *
+ * @param {number} d Array de inteiros correspondentes aos dígitos do cpf.
+ *
+ * @returns {boolean} Resultado da verificação de se cpf é ou não válido.
+ */
 
 function cpf2(d) {
 

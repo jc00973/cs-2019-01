@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("raiz de 1", () => {
     expect(funcoes.raiz(1, 100)).toBe(1);

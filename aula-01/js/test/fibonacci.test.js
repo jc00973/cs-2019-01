@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("2º termo da sequência fibonacci", () => {
     expect(funcoes.fibonacci(2)).toBe(2);

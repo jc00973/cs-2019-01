@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("sábado, 25 de maio de 2019", () => {
     expect(funcoes.diaDaSemana(25, 5, 2019)).toBe(5);

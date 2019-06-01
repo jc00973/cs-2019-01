@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("n = 0", () => {
     expect(() => { funcoes.fatorial(); }).toThrow();

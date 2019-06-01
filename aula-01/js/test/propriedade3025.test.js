@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("3025 satisfaz (caso classico)", () => {
   expect(funcoes.propriedade3025(3025)).toBe(true);
@@ -23,7 +23,6 @@ test("argumento null/undefined", () => {
 test("argumento nao numerico", () => {
   expect(() => { funcoes.propriedade3025("abcd"); }).toThrow();
 });
-
 
 test("valor negativo fora da faixa", () => {
   expect(() => { funcoes.propriedade3025(-1); }).toThrow();

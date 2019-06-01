@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("meu cpf válido: 056874881-62", () => {
     expect(funcoes.cpf2([0, 0, 5, 6, 8, 7, 4, 8, 8, 1, 6, 2])).toBe(true);

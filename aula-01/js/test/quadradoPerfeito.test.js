@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("satisfaz: 1", () => {
     expect(funcoes.quadradoPerfeito(1)).toBe(true);

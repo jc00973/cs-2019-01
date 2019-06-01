@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("razão áurea", () => {
     expect(funcoes.razaoAurea(1, 2, 1000)).toBe(1.6180339887498947);

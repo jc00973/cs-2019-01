@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 vetorTeste = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 

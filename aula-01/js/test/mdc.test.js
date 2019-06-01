@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("mdc de 81 e 54", () => {
     expect(funcoes.mdc(81, 54)).toBe(27);

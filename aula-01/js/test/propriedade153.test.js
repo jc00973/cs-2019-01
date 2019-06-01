@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("153 satisfaz (caso classico)", () => {
     expect(funcoes.propriedade153(153)).toBe(true);

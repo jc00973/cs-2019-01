@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 test("argumento null/undefined", () => {
     expect(() => { funcoes.pi(); }).toThrow();

@@ -1,4 +1,4 @@
-const funcoes = require("../AlgoritmosEmJs");
+const funcoes = require("../algoritmosEmJs");
 
 //test("3 e 3", () => {
 //    expect(funcoes.logaritmoNatural(3, 100)).toBe(20.0855369);
