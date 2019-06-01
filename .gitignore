@@ -5,4 +5,5 @@
 .classpath
 .project
 node_modules/
-target/
+aula-01/java/target/
+bck/
