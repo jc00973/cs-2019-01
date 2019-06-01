@@ -51,6 +51,26 @@ public final class AlgoritmosEmJava {
         }
     }
 
+    public static void validarCpf(int cpf[]) {
+        if (cpf == null) {
+            throw new IllegalArgumentException("Parâmetro inválido. O valor é nulo.");
+        }
+
+        if (cpf.length != 12) {
+            throw new IllegalArgumentException("Parâmetro inválido. O valor não tem 11 dígitos.");
+        }
+
+        int i = 0;
+
+        while(i < 11){
+            if (cpf[i] < 0 || cpf[i] > 9) {
+                throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
+            }
+
+            i++;
+        }
+    }
+
     public static boolean propriedade3025(int n) {
 
         validarParametro(n, 0, 9999);
@@ -324,6 +344,9 @@ public final class AlgoritmosEmJava {
 
     public static double mdc2(int a, int b) {
 
+        validarParametroMin(b, 1);
+        validarParametroMin(a, b);
+
         while (a != b) {
             if (a > b)
                 a = a - b;
@@ -335,6 +358,8 @@ public final class AlgoritmosEmJava {
     }
 
     public static double horner(int x, int g, int a[]) {
+
+        validarParametroMin(g, 1);
 
         double p = a[g];
         int i = g - 1;
@@ -351,6 +376,7 @@ public final class AlgoritmosEmJava {
 
         validarParametroMin(n, 0);
 
+        n++;
         int a = 0;
         int c = 1;
 
@@ -371,6 +397,9 @@ public final class AlgoritmosEmJava {
     }
 
     public static boolean cpf(int d[]) {
+
+        validarCpf(d);
+
         int j = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
         int k = d[2] + 2 * d[3] + 3 * d[4] + 4 * d[5] + 5 * d[6] + 6 * d[7] + 7 * d[8] + 8 * d[9] + 9 * d[10];
 
@@ -381,6 +410,8 @@ public final class AlgoritmosEmJava {
     }
 
     public static boolean cpf2(int d[]) {
+
+        validarCpf(d);
 
         int c = 8;
         int p = d[9];
