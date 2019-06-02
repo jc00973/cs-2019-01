@@ -365,19 +365,19 @@ public final class AlgoritmosEmJava {
      * @returns Valor aproximado do logaritmo natural por n.
      */
 
-    public static float logaritmoNatural(int n, int k) {
+    public static double logaritmoNatural(double n, double k) {
 
-        validarParametroMin(n, 1);
-        validarParametroMin(k, 2);
+        validarParametroMinDouble(n, 1);
+        validarParametroMinDouble(k, 2);
 
-        float i = 2;
-        float e = 1 + n;
-        float numerador = n;
-        float denominador = 1;
+        double i = 2;
+        double e = 1 + n;
+        double numerador = n;
+        double denominador = 1;
 
         while (i <= k) {
             numerador = numerador * numerador;
-            denominador = denominador * i;
+            denominador = denominador + i;
             e = e + numerador / denominador;
             i = i + 1;
         }
@@ -612,13 +612,14 @@ public final class AlgoritmosEmJava {
 
         validarParametroMin(n, 0);
 
-        n++;
         int a = 0;
         int c = 1;
 
         if ((n == 0) || (n == 1)) {
             return n;
         }
+
+        n++;
 
         int i = 2;
 
@@ -650,7 +651,7 @@ public final class AlgoritmosEmJava {
         int dj = ((j % 11) % 10);
         int dk = ((k % 11) % 10);
 
-        return (dj == d[10] && dk == d[11]);
+        return dj == d[10];
     }
 
     /**
@@ -679,6 +680,6 @@ public final class AlgoritmosEmJava {
         int j = ((s % 11) % 10);
         int k = (((s - p + 9 * d[10]) % 11) % 10);
 
-        return j == d[10] && k == d[11];
+        return j == d[10];
     }
 }
