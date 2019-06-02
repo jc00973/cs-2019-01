@@ -15,5 +15,7 @@ public class Propriedade3025Test {
         assertEquals(false, AlgoritmosEmJava.propriedade3025(3024));
         assertThrows(IllegalArgumentException.class,
                 () -> AlgoritmosEmJava.propriedade3025(-17));
+        assertThrows(IllegalArgumentException.class,
+                () -> AlgoritmosEmJava.propriedade3025(11111));
     }
 }

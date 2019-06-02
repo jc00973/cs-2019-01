@@ -15,6 +15,7 @@ public class CpfTest {
     int cpfTeste6[] = {0, 1, 9, 1, 2};
     int cpfTeste7[] = {0, -1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2};
     int cpfTeste8[] = {0, 111, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2};
+    int cpfTeste9[] = {};
 
     @Test
     void testCpf() {
@@ -29,5 +30,7 @@ public class CpfTest {
                 () -> AlgoritmosEmJava.cpf(cpfTeste7));
         assertThrows(IllegalArgumentException.class,
                 () -> AlgoritmosEmJava.cpf(cpfTeste8));
+        assertThrows(IllegalArgumentException.class,
+                () -> AlgoritmosEmJava.cpf(null));
     }
 }

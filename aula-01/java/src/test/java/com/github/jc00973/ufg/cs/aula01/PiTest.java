@@ -9,6 +9,7 @@ public class PiTest {
 
     @Test
     void testPi() {
+        assertEquals(3.14159265359, AlgoritmosEmJava.pi(1000), 0.01);
         assertThrows(IllegalArgumentException.class,
                 () -> AlgoritmosEmJava.pi(-17));
     }

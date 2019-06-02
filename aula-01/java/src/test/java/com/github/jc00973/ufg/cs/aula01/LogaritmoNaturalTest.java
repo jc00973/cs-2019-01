@@ -9,6 +9,7 @@ public class LogaritmoNaturalTest {
 
     @Test
     void testLogaritmoNatural() {
+        assertEquals(2.5, AlgoritmosEmJava.logaritmoNatural(1, 3));
         assertThrows(IllegalArgumentException.class,
                 () -> AlgoritmosEmJava.logaritmoNatural(-17, 7));
     }

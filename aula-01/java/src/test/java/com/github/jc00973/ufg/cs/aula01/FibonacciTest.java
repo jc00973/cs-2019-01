@@ -14,6 +14,8 @@ public class FibonacciTest {
         assertEquals(8, AlgoritmosEmJava.fibonacci(5));
         assertEquals(34, AlgoritmosEmJava.fibonacci(8));
         assertEquals(144, AlgoritmosEmJava.fibonacci(11));
+        assertEquals(0, AlgoritmosEmJava.fibonacci(0));
+        assertEquals(1, AlgoritmosEmJava.fibonacci(1));
         assertThrows(IllegalArgumentException.class,
                 () -> AlgoritmosEmJava.fibonacci(-17));
     }
