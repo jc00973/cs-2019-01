@@ -1,18 +1,29 @@
+/**
+ * Implementação em Java dos 21 algoritmos propostos na aula 01.
+ *
+ * @author jc00973 - João Carlos Fonseca
+ *
+ */
+
 package com.github.jc00973.ufg.cs.aula01;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-
-/**
- *
- * @author João Carlos Fonseca
- */
-
 public final class AlgoritmosEmJava {
 
     private AlgoritmosEmJava() {};
+
+    /**
+     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor mínimo
+     * do intervalo válido.
+     *
+     * @param parametro O parâmetro que será validado.
+     * @param valorMinimo O valor mínimo válido para o parâmetro.
+     *
+     * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
+     */
 
     public static void validarParametroMin(int parametro, int valorMinimo) {
 
@@ -22,6 +33,16 @@ public final class AlgoritmosEmJava {
 
     }
 
+    /**
+     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor mínimo
+     * do intervalo válido. Diferente da função anterior, essa é voltada para parâmetros do tipo double.
+     *
+     * @param parametro O parâmetro que será validado.
+     * @param valorMinimo O valor mínimo válido para o parâmetro.
+     *
+     * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
+     */
+
     public static void validarParametroMinDouble(double parametro, double valorMinimo) {
 
         if (parametro < valorMinimo) {
@@ -30,6 +51,17 @@ public final class AlgoritmosEmJava {
 
     }
 
+    /**
+     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro está
+     * dentro do intervalo válido de valores.
+     *
+     * @param parametro O parâmetro que será validado.
+     * @param valorMinimo O valor mínimo válido para o parâmetro.
+     * @param valorMaximo O valor máximo válido para o parâmetro.
+     *
+     * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
+     */
+
     public static void validarParametro(int parametro, int valorMinimo, int valorMaximo) {
 
         if (parametro < valorMinimo || parametro > valorMaximo) {
@@ -37,6 +69,17 @@ public final class AlgoritmosEmJava {
         }
 
     }
+
+    /**
+     * A função valida o parâmetro informado como vetor para a função crivoEratostenes(). Essa função verifica
+     * se os valores do vetor são iguais a zero para qualquer i que esteja no intervalo 2 ≤ i ≤ n.
+     *
+     * @param vetor O parâmetro vetor que será validado.
+     * @param n Refere-se ao parâmetro n, que indica o tamanho mínimo que o vetor deve ter.
+     *
+     * @throws {IllegalArgumentException} Caso o vetor não atenda aos requisitos definidos.
+     */
+
 
     public static void validarVetorCrivo(int vetor[], int n){
 
@@ -51,6 +94,17 @@ public final class AlgoritmosEmJava {
         }
     }
 
+    /**
+     * A função valida o parâmetro informado como cpf. Essa função verifica se o parâmetro é nulo, se
+     * está dentro do intervalo válido de valores e se o cpf tem 11 dígitos.
+     *
+     * @param cpf O parâmetro cpf que será validado.
+     *
+     * @throws {IllegalArgumentException} Caso o parâmetro seja nulo.
+     * @throws {IllegalArgumentException} Caso o parâmetro não tenha 11 dígitos.
+     * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
+     */
+
     public static void validarCpf(int cpf[]) {
         if (cpf == null) {
             throw new IllegalArgumentException("Parâmetro inválido. O valor é nulo.");
@@ -62,7 +116,7 @@ public final class AlgoritmosEmJava {
 
         int i = 0;
 
-        while(i < 11){
+        while(i < 12){
             if (cpf[i] < 0 || cpf[i] > 9) {
                 throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
             }
@@ -70,6 +124,15 @@ public final class AlgoritmosEmJava {
             i++;
         }
     }
+
+    /**
+     * Verifica se o parâmetro é um número que apresenta a
+     * propriedade 3025.
+     *
+     * @param n O número que será verificado.
+     *
+     * @returns O resultado da verificação.
+     */
 
     public static boolean propriedade3025(int n) {
 
@@ -80,6 +143,15 @@ public final class AlgoritmosEmJava {
 
         return Math.pow((i + j), 2) == n;
     }
+
+    /**
+     * Verifica se o parâmetro é um número que apresenta a
+     * propriedade 153.
+     *
+     * @param n O número que será verificado.
+     *
+     * @returns O resultado da verificação.
+     */
 
     public static boolean propriedade153(int n) {
 
@@ -97,6 +169,18 @@ public final class AlgoritmosEmJava {
         return (x + y + z) == n;
     }
 
+    /**
+     * Verifica o dia da semana referente a data informada.
+     *
+     * @param d Dia da data.
+     * @param m Mês da data.
+     * @param a Ano da data.
+     *
+     * @returns O número correspondente ao dia
+     * da semana da data, entre 0 e 6. O valor retornado é 0 para
+     * segunda-feira, 1 para terça-feira e assim sucessivamente.
+     */
+
     public static double diaDaSemana(int d, int m, int a) {
 
         validarParametro(d, 1, 31);
@@ -113,6 +197,15 @@ public final class AlgoritmosEmJava {
         return s % 7;
     }
 
+    /**
+     * A função calcula o resto inteiro da divisão (mod) entre os parâmetros.
+     *
+     * @param x Numerador da divisão.
+     * @param y Denominador da divisão.
+     *
+     * @returns O valor do mod.
+     */
+
     public static int mod(int x, int y) {
 
         validarParametroMin(x, 0);
@@ -126,6 +219,15 @@ public final class AlgoritmosEmJava {
 
         return s;
     }
+
+    /**
+     * A função realiza a soma de todos os inteiros naturais até o valor inteiro
+     * informado no parâmetro.
+     *
+     * @param n Valor final para a soma.
+     *
+     * @returns O valor do somatório.
+     */
 
     public static int soma(int n) {
 
@@ -142,6 +244,14 @@ public final class AlgoritmosEmJava {
         return s;
     }
 
+    /**
+     * A função calcula o fatorial do número natural informado no parâmetro.
+     *
+     * @param n Número natural que terá o fatorial calculado.
+     *
+     * @returns O fatorial do parâmetro.
+     */
+
     public static int fatorial(int n) {
 
         validarParametroMin(n, 1);
@@ -156,6 +266,15 @@ public final class AlgoritmosEmJava {
 
         return f;
     }
+
+    /**
+     * A função calcula o produto de dois inteiros usando apenas somas.
+     *
+     * @param a Primeiro inteiro da operação de multiplicação.
+     * @param b Segundo inteiro da operação de multiplicação.
+     *
+     * @returns O produto da operação.
+     */
 
     public static int produto(int a, int b) {
 
@@ -181,6 +300,16 @@ public final class AlgoritmosEmJava {
         return s;
     }
 
+    /**
+     * A função calcula a potência de um número (base) usando apenas somas.
+     * Ela reutiliza a função anterior, produto().
+     *
+     * @param x Base.
+     * @param y Expoente.
+     *
+     * @returns Potência.
+     */
+
     public static int potencia(int x, int y) {
 
         validarParametroMin(x, 0);
@@ -196,6 +325,15 @@ public final class AlgoritmosEmJava {
 
         return potencia;
     }
+
+    /**
+     * A função estima o valor de pi, sendo a precisão do resultado proporcional ao tamanho
+     * do parâmetro.
+     *
+     * @param n Quantidade de termos do somatório.
+     *
+     * @returns Estimativa do valor de pi.
+     */
 
     public static double pi(int n) {
 
@@ -215,6 +353,17 @@ public final class AlgoritmosEmJava {
 
         return p;
     }
+
+    /**
+     * A função realiza o somatório que estima o valor do logaritmo natural dado um
+     * expoente n qualquer (desde que seja um número natural e positivo). A precisão do
+     * resultado é proporcional ao tamanho do parâmetro k.
+     *
+     * @param n Expoente natural positivo.
+     * @param k Quantidade de termos do somatório.
+     *
+     * @returns Valor aproximado do logaritmo natural por n.
+     */
 
     public static float logaritmoNatural(int n, int k) {
 
@@ -237,6 +386,17 @@ public final class AlgoritmosEmJava {
 
     }
 
+    /**
+     * A função estima a razão áurea dado dois números inteiros positivos.
+     * A precisão do resultado é proporcional ao tamanho do parâmetro k.
+     *
+     * @param x Primeiro inteiro positivo.
+     * @param y Segundo inteiro positivo.
+     * @param k O número de repetições.
+     *
+     * @returns A estimativa do valor da razão áurea.
+     */
+
     public static double razaoAurea(int x, int y, int k) {
 
         validarParametroMin(x, 0);
@@ -257,6 +417,14 @@ public final class AlgoritmosEmJava {
         return c / a;
     }
 
+    /**
+     * A função retorna verdadeiro se o número fornecido for um quadrado perfeito.
+     *
+     * @param n Número que será verificado.
+     *
+     * @returns Resposta para se o número é ou não um quadrado perfeito.
+     */
+
     public static boolean quadradoPerfeito(int n) {
 
         validarParametroMin(n, 1);
@@ -272,6 +440,16 @@ public final class AlgoritmosEmJava {
         return (s == n);
     }
 
+    /**
+     * A função é para extração da raiz quadrada. Quanto maior o valor de i mais preciso
+     * é o valor da raiz desejada.
+     *
+     * @param n Número o qual deseja-se extrair a raíz quadrada.
+     * @param i Quantidade de repetições para definição da precisão desejada.
+     *
+     * @returns Raíz quadrada de n.
+     */
+
     public static double raiz(double n, double i) {
 
         validarParametroMinDouble(n, 1);
@@ -285,6 +463,14 @@ public final class AlgoritmosEmJava {
 
         return r;
     }
+
+    /**
+     * A função verifica de n é um número primo.
+     *
+     * @param n Número que deseja-se saber se é primo.
+     *
+     * @returns Resultado da verificação sobre o n ser ou não um número primo.
+     */
 
     public static boolean primo(int n) {
 
@@ -302,6 +488,16 @@ public final class AlgoritmosEmJava {
 
         return true;
     }
+
+    /**
+     * A função implementa um método de determinação de números primos.
+     *
+     * @param a Array contendo apenas zeros, devendo a quantidade de elementos
+     * ser maior ou igual ao parâmetro n.
+     * @param n Número o qual deseja-se saber se é primo ou não.
+     *
+     * @returns Resultado da verificação sobre o n ser ou não um número primo.
+     */
 
     public static boolean crivoEratostenes(int a[], int n) {
 
@@ -328,6 +524,15 @@ public final class AlgoritmosEmJava {
         return a[n] == 0;
     }
 
+    /**
+     * Função para identificar o maior divisor comum entre dois inteiros.
+     *
+     * @param a Primeiro inteiro.
+     * @param b Segundo inteiro.
+     *
+     * @returns O maior divisor comum entre os dois inteiros informados.
+     */
+
     public static double mdc(double a, double b) {
 
         validarParametroMinDouble(b, 1);
@@ -341,6 +546,17 @@ public final class AlgoritmosEmJava {
 
         return a;
     }
+
+    /**
+     * Função para identificar o maior divisor comum entre dois inteiros, assim como a
+     * função anterior. No entanto, este algoritmo limita-se ao uso de subtrações para
+     * calcular o resultado.
+     *
+     * @param a Primeiro inteiro.
+     * @param b Segundo inteiro.
+     *
+     * @returns O maior divisor comum entre os dois inteiros informados.
+     */
 
     public static double mdc2(int a, int b) {
 
@@ -357,6 +573,16 @@ public final class AlgoritmosEmJava {
         return a;
     }
 
+    /**
+     * A função realiza a avaliação de um polinômio para um valor especifco de x.
+     *
+     * @param x Valor x do polinômio.
+     * @param g Quantidade de elementos a do polinômio.
+     * @param a Array com os elementos a do polinômio.
+     *
+     * @returns O resultado do polinômio.
+     */
+
     public static double horner(int x, int g, int a[]) {
 
         validarParametroMin(g, 1);
@@ -371,6 +597,16 @@ public final class AlgoritmosEmJava {
 
         return p;
     }
+
+    /**
+     * A função é uma proposta de obtenção do n-ésimo número de Fibonacci
+     * (versão não recursiva).
+     *
+     * @param n Valor correspondente à posição que deseja-se saber o valor na
+     * sequência de Fibonacci.
+     *
+     * @returns O n-ésimo número de Fibonacci.
+     */
 
     public static int fibonacci(int n) {
 
@@ -396,6 +632,14 @@ public final class AlgoritmosEmJava {
         return c;
     }
 
+    /**
+     * Função validadora de número de cpf.
+     *
+     * @param d Array de inteiros correspondentes aos dígitos do cpf.
+     *
+     * @returns Resultado da verificação de se cpf é ou não válido.
+     */
+
     public static boolean cpf(int d[]) {
 
         validarCpf(d);
@@ -408,6 +652,15 @@ public final class AlgoritmosEmJava {
 
         return (dj == d[10] && dk == d[11]);
     }
+
+    /**
+     * Função validadora de número de cpf. No entando, diferente da anterior, já que
+     * utiliza uma estratégia similar a empregada na função horner().
+     *
+     * @param d Array de inteiros correspondentes aos dígitos do cpf.
+     *
+     * @returns Resultado da verificação de se cpf é ou não válido.
+     */
 
     public static boolean cpf2(int d[]) {
 

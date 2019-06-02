@@ -250,6 +250,7 @@ function fatorial(n) {
  *
  * @returns {number} O produto da operação.
  */
+
 function produto(a, b) {
 
     validarParametro(a, 0);
@@ -333,10 +334,10 @@ function pi(n) {
  * expoente n qualquer (desde que seja um número natural e positivo). A precisão do
  * resultado é proporcional ao tamanho do parâmetro k.
  *
- * @param n Expoente natural positivo.
- * @param k Quantidade de termos do somatório.
+ * @param {number} n Expoente natural positivo.
+ * @param {number} k Quantidade de termos do somatório.
  *
- * @returns {*}
+ * @returns {number} Valor aproximado do logaritmo natural por n.
  */
 
 function logaritmoNatural(n, k) {
