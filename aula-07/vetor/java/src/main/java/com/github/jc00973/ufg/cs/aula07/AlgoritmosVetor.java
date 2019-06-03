@@ -30,7 +30,7 @@ public final class AlgoritmosVetor {
         return soma;
     }
 
-    public static int quantidadeElementosIguais(final int[] vetor, int elemento){
+    public static int quantidadeElementosIguais(final int[] vetor, int elemento) {
 
         int qtdElementosIguais = 0;
 
