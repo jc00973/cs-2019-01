@@ -16,7 +16,6 @@ public final class AlgoritmosVetor {
      * A função encontra a menor temperatura em um vetor de valores recebido como argumento.
      *
      * @param temperaturas Vetor de valores de temperaturas.
-     *
      * @return A menor temperatura encontrada no vetor.
      */
 
@@ -37,7 +36,6 @@ public final class AlgoritmosVetor {
      * A função realiza a soma de números ímpares contidos em um vetor de inteiros.
      *
      * @param vetor Vetor de números inteiros.
-     *
      * @return A soma dos números ímpares do vetor.
      */
 
@@ -45,8 +43,8 @@ public final class AlgoritmosVetor {
 
         int soma = 0;
 
-        for(final int num : vetor){
-            if(num % 2 != 0){
+        for (final int num : vetor) {
+            if (num % 2 != 0) {
                 soma = soma + num;
             }
         }
@@ -58,18 +56,17 @@ public final class AlgoritmosVetor {
      * A função retorna a quantidade de elementos do vetor recebido como primeiro argumento cujos valores são
      * iguais ao valor do segundo argumento fornecido.
      *
-     * @param vetor Vetor que será analisado.
+     * @param vetor    Vetor que será analisado.
      * @param elemento Valor que será buscado no vetor e contabilizado.
-     *
      * @return A quantidade de valores no vetor iguais ao elemento.
      */
 
-    public static int quantidadeElementosIguais(final int[] vetor, int elemento){
+    public static int quantidadeElementosIguais(final int[] vetor, int elemento) {
 
         int qtdElementosIguais = 0;
 
-        for(final int num : vetor){
-            if(num == elemento){
+        for (final int num : vetor) {
+            if (num == elemento) {
                 qtdElementosIguais++;
             }
         }
@@ -81,18 +78,17 @@ public final class AlgoritmosVetor {
      * A função conta a quantidade de cada uma das letras presentes em uma sequência de caracteres.
      *
      * @param palavra A sequência de caracteres.
-     *
      * @return Vetor com a quantidade de repetições de cada letra na string.
      */
 
-    public static int[] contarLetra(final String palavra){
+    public static int[] contarLetra(final String palavra) {
 
         char[] palavraVetor = palavra.toCharArray();
         int[] qtdLetra = new int[palavraVetor.length];
 
-        for(int i = 0 ; i < palavraVetor.length ; i++){
-            for(int j = 0 ; j < palavraVetor.length ; j++){
-                if(palavraVetor[i] == palavraVetor[j]){
+        for (int i = 0; i < palavraVetor.length; i++) {
+            for (int j = 0; j < palavraVetor.length; j++) {
+                if (palavraVetor[i] == palavraVetor[j]) {
                     qtdLetra[i]++;
                 }
             }
@@ -106,18 +102,17 @@ public final class AlgoritmosVetor {
      * função anterior. Uma palavra é considerada aquela delimitada por um espaço em branco.
      *
      * @param frase A sequência de caracteres.
-     *
      * @return A palavra que mais aparece na sequência de caracteres.
      */
 
-    public static String localizarPalavraFrequente(final String frase){
+    public static String localizarPalavraFrequente(final String frase) {
 
         final String[] palavras = frase.split(" ");
         int[] qtdPalavra = new int[palavras.length];
 
-        for(int i = 0 ; i < palavras.length ; i++){
-            for(int j = 0 ; j < palavras.length ; j++){
-                if(palavras[i].equals(palavras[j])){
+        for (int i = 0; i < palavras.length; i++) {
+            for (int j = 0; j < palavras.length; j++) {
+                if (palavras[i].equals(palavras[j])) {
                     qtdPalavra[i]++;
                 }
             }
@@ -126,8 +121,8 @@ public final class AlgoritmosVetor {
         int maiorQtd = 0;
         int maiorQtdPosicao = 0;
 
-        for(int k = 0 ; k < palavras.length ; k++) {
-            if(qtdPalavra[k] > maiorQtd){
+        for (int k = 0; k < palavras.length; k++) {
+            if (qtdPalavra[k] > maiorQtd) {
                 maiorQtd = qtdPalavra[k];
                 maiorQtdPosicao = k;
             }
@@ -144,28 +139,27 @@ public final class AlgoritmosVetor {
      *
      * @return Coleção de strings contendo os números mais sorteados juntamente com a quantidade
      * de vezes que foram sorteados.
-     *
      */
 
-    public static Collection<String> verificarMaisSorteado(){
+    public static Collection<String> verificarMaisSorteado() {
 
         Random gerador = new Random();
         int[] qtdSorteada = new int[1000];
         int maiorQtdSorteio = 0;
         Collection<String> maisSorteados = new ArrayList();
 
-        for(int i = 0 ; i < 1000000 ; i++) {
+        for (int i = 0; i < 1000000; i++) {
             qtdSorteada[gerador.nextInt(1000)]++;
         }
 
-        for(int j = 0 ; j < 1000 ; j++){
-            if(qtdSorteada[j] > maiorQtdSorteio){
+        for (int j = 0; j < 1000; j++) {
+            if (qtdSorteada[j] > maiorQtdSorteio) {
                 maiorQtdSorteio = qtdSorteada[j];
             }
         }
 
-        for(int k = 0 ; k < 1000 ; k++){
-            if(qtdSorteada[k] == maiorQtdSorteio){
+        for (int k = 0; k < 1000; k++) {
+            if (qtdSorteada[k] == maiorQtdSorteio) {
                 maisSorteados.add(k + " foi sorteado " + maiorQtdSorteio + " vezes.");
             }
         }
