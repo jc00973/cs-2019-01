@@ -4,6 +4,10 @@ package com.github.jc00973.ufg.cs.aula07;
  * Implementação em Java dos 6 algoritmos propostos na aula 07.
  */
 
+import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Random;
+
 public final class AlgoritmosVetor {
 
     private AlgoritmosVetor() { };
@@ -131,6 +135,42 @@ public final class AlgoritmosVetor {
 
         return palavras[maiorQtdPosicao];
 
+    }
+
+    /**
+     * A função sorteia aleatoriamente 1.000.000 de valores inteiros de 0 a 1000 e identifica o
+     * número que mais foi sorteado. Se mais de um número foi o “mais frequente”, então todos eles
+     * são retornados (em uma coleção) juntamente com a quantidade de vezes em que ocorrerão.
+     *
+     * @return Coleção de strings contendo os números mais sorteados juntamente com a quantidade
+     * de vezes que foram sorteados.
+     *
+     */
+
+    public static Collection<String> verificarMaisSorteado(){
+
+        Random gerador = new Random();
+        int[] qtdSorteada = new int[1000];
+        int maiorQtdSorteio = 0;
+        Collection<String> maisSorteados = new ArrayList();
+
+        for(int i = 0 ; i < 1000000 ; i++) {
+            qtdSorteada[gerador.nextInt(1000)]++;
+        }
+
+        for(int j = 0 ; j < 1000 ; j++){
+            if(qtdSorteada[j] > maiorQtdSorteio){
+                maiorQtdSorteio = qtdSorteada[j];
+            }
+        }
+
+        for(int k = 0 ; k < 1000 ; k++){
+            if(qtdSorteada[k] == maiorQtdSorteio){
+                maisSorteados.add(k + " foi sorteado " + maiorQtdSorteio + " vezes.");
+            }
+        }
+
+        return maisSorteados;
     }
 }
 
