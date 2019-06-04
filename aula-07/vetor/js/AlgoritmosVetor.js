@@ -13,7 +13,7 @@ function encontrarMenorTemperatura(temperaturas) {
 
     var menorTemperatura = temperaturas[0];
 
-    for (var i = 0 ; i < temperaturas.length ; i++) {
+    for (var i = 0; i < temperaturas.length; i++) {
         if (temperaturas[i] < menorTemperatura) {
             menorTemperatura = temperaturas[i];
         }
@@ -33,7 +33,7 @@ function somaNumerosImpares(vetor) {
 
     var soma = 0;
 
-    for (var i = 0 ; i < vetor.length ; i++) {
+    for (var i = 0; i < vetor.length; i++) {
         if (vetor[i] % 2 != 0) {
             soma = soma + vetor[i];
         }
@@ -55,7 +55,7 @@ function quantidadeElementosIguais(vetor, elemento) {
 
     var qtdElementosIguais = 0;
 
-    for (var i = 0 ; i < vetor.length ; i++) {
+    for (var i = 0; i < vetor.length; i++) {
         if (vetor[i] == elemento) {
             qtdElementosIguais++;
         }
@@ -76,7 +76,7 @@ function contarLetra(palavra) {
     var palavraVetor = palavra.split('');
     var qtdLetra = [];
 
-    for (var h = 0; h < palavraVetor.length; h++){
+    for (var h = 0; h < palavraVetor.length; h++) {
         qtdLetra[h] = 0;
     }
 
@@ -131,10 +131,64 @@ function localizarPalavraFrequente(frase) {
 
 }
 
+/**
+ * A função gera um número inteiro aleatório entre dois valores.
+ *
+ * @param {number} min Valor mínimo do intervalo.
+ * @param {number} max Valor máximo do intervalo.
+ *
+ * @returns {number} Valor aleatório dentro do intervalo especificado no parâmetro.
+ */
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
+ * A função sorteia aleatoriamente 1.000.000 de valores inteiros de 0 a 1000 e identifica o
+ * número que mais foi sorteado. Se mais de um número foi o “mais frequente”, então todos eles
+ * são retornados (em uma coleção) juntamente com a quantidade de vezes em que ocorrerão.
+ *
+ * @return {String} Array de strings contendo os números mais sorteados juntamente com a quantidade
+ * de vezes que foram sorteados.
+ */
+
+function verificarMaisSorteado() {
+
+    var qtdSorteada = [1000];
+    var maiorQtdSorteio = 0;
+    var maisSorteados = [];
+
+    for (var h = 0; h < 1000; h++) {
+        qtdSorteada[h] = 0;
+    }
+
+    for (var i = 0; i < 1000000; i++) {
+        qtdSorteada[getRandomIntInclusive(0, 1000)]++;
+    }
+
+    for (var j = 0; j < 1000; j++) {
+        if (qtdSorteada[j] > maiorQtdSorteio) {
+            maiorQtdSorteio = qtdSorteada[j];
+        }
+    }
+
+    for (var k = 0; k < 1000; k++) {
+        if (qtdSorteada[k] == maiorQtdSorteio) {
+            maisSorteados.push(k + " foi sorteado " + maiorQtdSorteio + " vezes.");
+        }
+    }
+
+    return maisSorteados;
+}
+
 module.exports = {
     encontrarMenorTemperatura: encontrarMenorTemperatura,
     somaNumerosImpares: somaNumerosImpares,
     quantidadeElementosIguais: quantidadeElementosIguais,
     contarLetra: contarLetra,
-    localizarPalavraFrequente: localizarPalavraFrequente
+    localizarPalavraFrequente: localizarPalavraFrequente,
+    verificarMaisSorteado: verificarMaisSorteado
 };
