@@ -1,0 +1,10 @@
+language: java
+
+script:
+  - mvn test checkstyle:check pmd:check spotbugs:check
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+  - "$HOME/.sonar/cache"
+jdk:
+  - oraclejdk8
