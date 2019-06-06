@@ -63,7 +63,7 @@ function validarCpf(cpf) {
 
     let i = 0;
 
-    while(i < 11){
+    while (i < 11) {
         if (isNaN(cpf[i])) {
             throw new TypeError("Parâmetro inválido. O valor não é um número.");
         }
@@ -90,15 +90,15 @@ function validarCpf(cpf) {
  * @throws {TypeError} Caso o vetor não atenda aos requisitos definidos.
  */
 
-function validarVetorCrivo(vetor, n){
+function validarVetorCrivo(vetor, n) {
 
     let i = 2;
 
-    while(i < n){
-        if(vetor[i] == 0){
+    while (i < n) {
+        if (vetor[i] == 0) {
             i++;
-        }else{
-            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos. vetor "+i+"= "+vetor[i]);
+        } else {
+            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos. vetor " + i + "= " + vetor[i]);
         }
     }
 }
@@ -188,7 +188,7 @@ function mod(x, y) {
 
     let s = x;
 
-    while (y <= s){
+    while (y <= s) {
         s = s - y;
     }
 
