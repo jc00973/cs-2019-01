@@ -1,9 +1,9 @@
 const funcoes = require("../algoritmosEmJs");
 
-vetorTeste1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-               0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var vetorTeste1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-vetorTeste2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+var vetorTeste2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 test("satisfaz: 2", () => {
@@ -39,15 +39,21 @@ test("não satisfaz: 36", () => {
 });
 
 test("argumento null/undefined", () => {
-    expect(() => { funcoes.crivoEratostenes(); }).toThrow();
+    expect(() => {
+        funcoes.crivoEratostenes();
+    }).toThrow();
 });
 
 test("argumento nao numerico", () => {
-    expect(() => { funcoes.crivoEratostenes("abcd"); }).toThrow();
+    expect(() => {
+        funcoes.crivoEratostenes("abcd");
+    }).toThrow();
 });
 
 test("valor negativo fora da faixa", () => {
-    expect(() => { funcoes.crivoEratostenes(-1); }).toThrow();
+    expect(() => {
+        funcoes.crivoEratostenes(-1);
+    }).toThrow();
 });
 
 test("valor deve ser inteiro", () => {

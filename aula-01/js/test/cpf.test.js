@@ -25,7 +25,7 @@ test("argumento null/undefined", () => {
 });
 
 test("argumento nao numerico", () => {
-    expect(() => { funcoes.cpf([0, 'a', 5, 4, 3, 2, 1, 5, 6, 8, 6, 5]); }).toThrow();
+    expect(() => { funcoes.cpf([0, "a", 5, 4, 3, 2, 1, 5, 6, 8, 6, 5]); }).toThrow();
 });
 
 test("valor negativo fora da faixa", () => {

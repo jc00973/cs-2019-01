@@ -1,7 +1,7 @@
 const funcoes = require("../algoritmosEmJs");
 
 test("3025 satisfaz (caso classico)", () => {
-  expect(funcoes.propriedade3025(3025)).toBe(true);
+    expect(funcoes.propriedade3025(3025)).toBe(true);
 });
 
 test("1 satisfaz", () => {
@@ -13,25 +13,31 @@ test("9988 nao satisfaz", () => {
 });
 
 test("3024 nao satisfaz", () => {
-  expect(funcoes.propriedade3025(3024)).toBe(false);
+    expect(funcoes.propriedade3025(3024)).toBe(false);
 });
 
 test("argumento null/undefined", () => {
-  expect(() => { funcoes.propriedade3025(); }).toThrow();
+    expect(() => {
+        funcoes.propriedade3025();
+    }).toThrow();
 });
 
 test("argumento nao numerico", () => {
-  expect(() => { funcoes.propriedade3025("abcd"); }).toThrow();
+    expect(() => {
+        funcoes.propriedade3025("abcd");
+    }).toThrow();
 });
 
 test("valor negativo fora da faixa", () => {
-  expect(() => { funcoes.propriedade3025(-1); }).toThrow();
+    expect(() => {
+        funcoes.propriedade3025(-1);
+    }).toThrow();
 });
 
 test("valor com mais de 4 digitos fora da faixa", () => {
-  expect(() => funcoes.propriedade3025(10000)).toThrow();
+    expect(() => funcoes.propriedade3025(10000)).toThrow();
 });
 
 test("valor deve ser inteiro", () => {
-  expect(() => funcoes.propriedade3025(10.3)).toThrow();
+    expect(() => funcoes.propriedade3025(10.3)).toThrow();
 });
