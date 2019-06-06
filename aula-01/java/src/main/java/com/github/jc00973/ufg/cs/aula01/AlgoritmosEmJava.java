@@ -2,22 +2,17 @@
  * Implementação em Java dos 21 algoritmos propostos na aula 01.
  *
  * @author jc00973 - João Carlos Fonseca
- *
  */
 
 package com.github.jc00973.ufg.cs.aula01;
 
-import java.time.DateTimeException;
-import java.time.LocalDate;
-import java.util.Arrays;
-
 public final class AlgoritmosEmJava {
 
-    private AlgoritmosEmJava() {};
+    private AlgoritmosEmJava() { };
 
     /**
-     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor mínimo
-     * do intervalo válido.
+     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor
+     * mínimo do intervalo válido.
      *
      * @param parametro O parâmetro que será validado.
      * @param valorMinimo O valor mínimo válido para o parâmetro.
@@ -25,7 +20,7 @@ public final class AlgoritmosEmJava {
      * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
      */
 
-    public static void validarParametroMin(int parametro, int valorMinimo) {
+    public static void validarParametroMin(final int parametro, final int valorMinimo) {
 
         if (parametro < valorMinimo) {
             throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
@@ -34,8 +29,8 @@ public final class AlgoritmosEmJava {
     }
 
     /**
-     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor mínimo
-     * do intervalo válido. Diferente da função anterior, essa é voltada para parâmetros do tipo double.
+     * A função valida o parâmetro informado em outra função. Essa função verifica se o parâmetro é menor que o valor
+     * mínimo do intervalo válido. Diferente da função anterior, essa é voltada para parâmetros do tipo double.
      *
      * @param parametro O parâmetro que será validado.
      * @param valorMinimo O valor mínimo válido para o parâmetro.
@@ -43,7 +38,7 @@ public final class AlgoritmosEmJava {
      * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
      */
 
-    public static void validarParametroMinDouble(double parametro, double valorMinimo) {
+    public static void validarParametroMinDouble(final double parametro, final double valorMinimo) {
 
         if (parametro < valorMinimo) {
             throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
@@ -62,7 +57,7 @@ public final class AlgoritmosEmJava {
      * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
      */
 
-    public static void validarParametro(int parametro, int valorMinimo, int valorMaximo) {
+    public static void validarParametro(final int parametro, final int valorMinimo, final int valorMaximo) {
 
         if (parametro < valorMinimo || parametro > valorMaximo) {
             throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
@@ -81,15 +76,16 @@ public final class AlgoritmosEmJava {
      */
 
 
-    public static void validarVetorCrivo(int vetor[], int n){
+    public static void validarVetorCrivo(final int[] vetor, final int n) {
 
         int i = 2;
 
-        while(i <= n){
-            if(vetor[i] == 0){
+        while (i <= n) {
+            if (vetor[i] == 0) {
                 i++;
-            }else{
-                throw new IllegalArgumentException("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos.");
+            } else {
+                throw new IllegalArgumentException("Parâmetro inválido. O vetor informado não atende aos requisitos "
+                        + "exigidos.");
             }
         }
     }
@@ -105,7 +101,8 @@ public final class AlgoritmosEmJava {
      * @throws {IllegalArgumentException} Caso o parâmetro esteja fora do intervalo válido definido.
      */
 
-    public static void validarCpf(int cpf[]) {
+    public static void validarCpf(final int[] cpf) {
+
         if (cpf == null) {
             throw new IllegalArgumentException("Parâmetro inválido. O valor é nulo.");
         }
@@ -116,7 +113,7 @@ public final class AlgoritmosEmJava {
 
         int i = 0;
 
-        while(i < 12){
+        while (i < 12) {
             if (cpf[i] < 0 || cpf[i] > 9) {
                 throw new IllegalArgumentException("Parâmetro inválido. O valor está fora do intervalo válido.");
             }
@@ -134,12 +131,12 @@ public final class AlgoritmosEmJava {
      * @returns O resultado da verificação.
      */
 
-    public static boolean propriedade3025(int n) {
+    public static boolean propriedade3025(final int n) {
 
         validarParametro(n, 0, 9999);
 
-        int i = n / 100;
-        int j = n % 100;
+        final int i = n / 100;
+        final int j = n % 100;
 
         return Math.pow((i + j), 2) == n;
     }
@@ -153,18 +150,18 @@ public final class AlgoritmosEmJava {
      * @returns O resultado da verificação.
      */
 
-    public static boolean propriedade153(int n) {
+    public static boolean propriedade153(final int n) {
 
         validarParametro(n, 100, 999);
 
-        int c = n / 100;
-        int du = n % 100;
-        int d = du / 10;
-        int u = du % 10;
+        final int c = n / 100;
+        final int du = n % 100;
+        final int d = du / 10;
+        final int u = du % 10;
 
-        double x = Math.pow(c, 3);
-        double y = Math.pow(d, 3);
-        double z = Math.pow(u, 3);
+        final double x = Math.pow(c, 3);
+        final double y = Math.pow(d, 3);
+        final double z = Math.pow(u, 3);
 
         return (x + y + z) == n;
     }
@@ -181,7 +178,7 @@ public final class AlgoritmosEmJava {
      * segunda-feira, 1 para terça-feira e assim sucessivamente.
      */
 
-    public static double diaDaSemana(int d, int m, int a) {
+    public static double diaDaSemana(final int d, int m, int a) {
 
         validarParametro(d, 1, 31);
         validarParametro(m, 1, 12);
@@ -192,7 +189,7 @@ public final class AlgoritmosEmJava {
             a = a - 1;
         }
 
-        int s = (d + 2 * m + (3 * (m + 1)) / 5 + a + a / 4 - a / 100 + a / 400);
+        final int s = (d + 2 * m + (3 * (m + 1)) / 5 + a + a / 4 - a / 100 + a / 400);
 
         return s % 7;
     }
@@ -206,7 +203,7 @@ public final class AlgoritmosEmJava {
      * @returns O valor do mod.
      */
 
-    public static int mod(int x, int y) {
+    public static int mod(final int x, final int y) {
 
         validarParametroMin(x, 0);
         validarParametroMin(y, 0);
@@ -229,7 +226,7 @@ public final class AlgoritmosEmJava {
      * @returns O valor do somatório.
      */
 
-    public static int soma(int n) {
+    public static int soma(final int n) {
 
         validarParametroMin(n, 1);
 
@@ -252,16 +249,16 @@ public final class AlgoritmosEmJava {
      * @returns O fatorial do parâmetro.
      */
 
-    public static int fatorial(int n) {
+    public static int fatorial(final int n) {
 
         validarParametroMin(n, 1);
 
         int i = 2;
         int f = 1;
 
-        while(i<=n) {
-            f = f*i;
-            i = i+1;
+        while (i <= n) {
+            f = f * i;
+            i = i + 1;
         }
 
         return f;
@@ -276,7 +273,7 @@ public final class AlgoritmosEmJava {
      * @returns O produto da operação.
      */
 
-    public static int produto(int a, int b) {
+    public static int produto(final int a, final int b) {
 
         validarParametroMin(a, 0);
         validarParametroMin(b, 0);
@@ -310,7 +307,7 @@ public final class AlgoritmosEmJava {
      * @returns Potência.
      */
 
-    public static int potencia(int x, int y) {
+    public static int potencia(final int x, final int y) {
 
         validarParametroMin(x, 0);
         validarParametroMin(y, 0);
@@ -335,7 +332,7 @@ public final class AlgoritmosEmJava {
      * @returns Estimativa do valor de pi.
      */
 
-    public static double pi(int n) {
+    public static double pi(final  int n) {
 
         validarParametroMin(n, 1);
 
@@ -365,7 +362,7 @@ public final class AlgoritmosEmJava {
      * @returns Valor aproximado do logaritmo natural por n.
      */
 
-    public static double logaritmoNatural(double n, double k) {
+    public static double logaritmoNatural(final double n, final double k) {
 
         validarParametroMinDouble(n, 1);
         validarParametroMinDouble(k, 2);
@@ -397,7 +394,7 @@ public final class AlgoritmosEmJava {
      * @returns A estimativa do valor da razão áurea.
      */
 
-    public static double razaoAurea(int x, int y, int k) {
+    public static double razaoAurea(final int x, final int y, final int k) {
 
         validarParametroMin(x, 0);
         validarParametroMin(y, x + 1);
@@ -425,7 +422,7 @@ public final class AlgoritmosEmJava {
      * @returns Resposta para se o número é ou não um quadrado perfeito.
      */
 
-    public static boolean quadradoPerfeito(int n) {
+    public static boolean quadradoPerfeito(final int n) {
 
         validarParametroMin(n, 1);
 
@@ -450,7 +447,7 @@ public final class AlgoritmosEmJava {
      * @returns Raíz quadrada de n.
      */
 
-    public static double raiz(double n, double i) {
+    public static double raiz(final double n, double i) {
 
         validarParametroMinDouble(n, 1);
 
@@ -472,7 +469,7 @@ public final class AlgoritmosEmJava {
      * @returns Resultado da verificação sobre o n ser ou não um número primo.
      */
 
-    public static boolean primo(int n) {
+    public static boolean primo(final int n) {
 
         validarParametroMin(n, 2);
 
@@ -499,13 +496,13 @@ public final class AlgoritmosEmJava {
      * @returns Resultado da verificação sobre o n ser ou não um número primo.
      */
 
-    public static boolean crivoEratostenes(int a[], int n) {
+    public static boolean crivoEratostenes(int a[], final int n) {
 
         validarParametroMin(n, 2);
         validarVetorCrivo(a, n);
 
         int i = 2;
-        double limite = Math.floor(Math.sqrt(n));
+        final double limite = Math.floor(Math.sqrt(n));
 
         while (i <= limite) {
             if (a[i] == 0) {
@@ -538,8 +535,10 @@ public final class AlgoritmosEmJava {
         validarParametroMinDouble(b, 1);
         validarParametroMinDouble(a, b);
 
+        double m = 0;
+
         while (b != 0) {
-            double m = a % b;
+            m = a % b;
             a = b;
             b = m;
         }
@@ -583,7 +582,7 @@ public final class AlgoritmosEmJava {
      * @returns O resultado do polinômio.
      */
 
-    public static double horner(int x, int g, int a[]) {
+    public static double horner(final int x, final int g, final int a[]) {
 
         validarParametroMin(g, 1);
 
@@ -641,15 +640,15 @@ public final class AlgoritmosEmJava {
      * @returns Resultado da verificação de se cpf é ou não válido.
      */
 
-    public static boolean cpf(int d[]) {
+    public static boolean cpf(final int d[]) {
 
         validarCpf(d);
 
-        int j = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
-        int k = d[2] + 2 * d[3] + 3 * d[4] + 4 * d[5] + 5 * d[6] + 6 * d[7] + 7 * d[8] + 8 * d[9] + 9 * d[10];
+        final int j = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
+        final int k = d[2] + 2 * d[3] + 3 * d[4] + 4 * d[5] + 5 * d[6] + 6 * d[7] + 7 * d[8] + 8 * d[9] + 9 * d[10];
 
-        int dj = ((j % 11) % 10);
-        int dk = ((k % 11) % 10);
+        final int dj = ((j % 11) % 10);
+        final int dk = ((k % 11) % 10);
 
         return dj == d[10];
     }
@@ -663,7 +662,7 @@ public final class AlgoritmosEmJava {
      * @returns Resultado da verificação de se cpf é ou não válido.
      */
 
-    public static boolean cpf2(int d[]) {
+    public static boolean cpf2(final int d[]) {
 
         validarCpf(d);
 
@@ -677,8 +676,8 @@ public final class AlgoritmosEmJava {
             c = c - 1;
         }
 
-        int j = ((s % 11) % 10);
-        int k = (((s - p + 9 * d[10]) % 11) % 10);
+        final int j = ((s % 11) % 10);
+        final int k = (((s - p + 9 * d[10]) % 11) % 10);
 
         return j == d[10];
     }
