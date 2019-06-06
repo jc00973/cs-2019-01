@@ -1,36 +1,37 @@
 const funcoes = require("../algoritmosEmJs");
 
-vetorTeste = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-vetorTeste2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+vetorTeste1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+vetorTeste2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 test("satisfaz: 2", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 2)).toBe(true);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 2)).toBe(true);
 });
 
 test("satisfaz: 3", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 3)).toBe(true);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 3)).toBe(true);
 });
 
 test("satisfaz: 5", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 5)).toBe(true);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 5)).toBe(true);
 });
 
 test("satisfaz: 59", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste2, 59)).toBe(true);
+    expect(funcoes.crivoEratostenes(vetorTeste1, 59)).toBe(true);
 });
 
 test("não satisfaz: 4", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 4)).toBe(false);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 4)).toBe(false);
 });
 
 test("não satisfaz: 6", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 6)).toBe(false);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 6)).toBe(false);
 });
 
 test("não satisfaz: 8", () => {
-    expect(funcoes.crivoEratostenes(vetorTeste, 8)).toBe(false);
+    expect(funcoes.crivoEratostenes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 8)).toBe(false);
 });
 
 test("não satisfaz: 36", () => {
