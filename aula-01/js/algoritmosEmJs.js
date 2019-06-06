@@ -61,7 +61,7 @@ function validarCpf(cpf) {
         throw new TypeError("Parâmetro inválido. O valor não tem 11 dígitos.");
     }
 
-    var i = 0;
+    let i = 0;
 
     while(i < 11){
         if (isNaN(cpf[i])) {
@@ -92,13 +92,13 @@ function validarCpf(cpf) {
 
 function validarVetorCrivo(vetor, n){
 
-    var i = 2;
+    let i = 2;
 
-    while(i <= n){
+    while(i < n){
         if(vetor[i] == 0){
             i++;
         }else{
-            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos.");
+            throw new TypeError("Parâmetro inválido. O vetor informado não atende aos requisitos exigidos. vetor "+i+"= "+vetor[i]);
         }
     }
 }
@@ -116,8 +116,8 @@ function propriedade3025(n) {
 
     validarParametro(n, 0, 9999);
 
-    var i = Math.floor(n / 100);
-    var j = Math.floor(n % 100);
+    const i = Math.floor(n / 100);
+    const j = Math.floor(n % 100);
 
     return Math.pow((i + j), 2) == n;
 }
@@ -135,10 +135,10 @@ function propriedade153(n) {
 
     validarParametro(n, 100, 999);
 
-    var c = Math.floor(n / 100);
-    var du = n % 100;
-    var d = Math.floor(du / 10);
-    var u = du % 10;
+    const c = Math.floor(n / 100);
+    const du = n % 100;
+    const d = Math.floor(du / 10);
+    const u = du % 10;
 
     return (Math.pow(c, 3) + Math.pow(d, 3) + Math.pow(u, 3)) == n;
 }
@@ -166,7 +166,7 @@ function diaDaSemana(dia, mes, ano) {
         ano = ano - 1;
     }
 
-    var s = dia + 2 * mes + Math.floor(3 * (mes + 1) / 5) + ano
+    let s = dia + 2 * mes + Math.floor(3 * (mes + 1) / 5) + ano
         + Math.floor(ano / 4) - Math.floor(ano / 100) + Math.floor(ano / 400);
 
     return Math.floor(s % 7);
@@ -186,7 +186,7 @@ function mod(x, y) {
     validarParametro(x, 0);
     validarParametro(y, 0);
 
-    var s = x;
+    let s = x;
 
     while (y <= s){
         s = s - y;
@@ -208,8 +208,8 @@ function soma(n) {
 
     validarParametro(n, 1);
 
-    var i = 2;
-    var s = 1;
+    let i = 2;
+    let s = 1;
 
     while (i <= n) {
         s = s + i;
@@ -231,8 +231,8 @@ function fatorial(n) {
 
     validarParametro(n, 1);
 
-    var i = 2;
-    var f = 1;
+    let i = 2;
+    let f = 1;
 
     while (i <= n) {
         f = f * i;
@@ -256,16 +256,16 @@ function produto(a, b) {
     validarParametro(a, 0);
     validarParametro(b, 0);
 
-    var totalParcelas = a;
-    var parcela = b;
+    let totalParcelas = a;
+    let parcela = b;
 
     if (b < a) {
         totalParcelas = b;
         parcela = a;
     }
 
-    var i = 1;
-    var s = 0;
+    let i = 1;
+    let s = 0;
 
     while (i <= totalParcelas) {
         s = s + parcela;
@@ -290,8 +290,8 @@ function potencia(x, y) {
     validarParametro(x, 0);
     validarParametro(y, 0);
 
-    var potencia = 1;
-    var i = 1;
+    let potencia = 1;
+    let i = 1;
 
     while (i <= y) {
         potencia = produto(potencia, x);
@@ -314,10 +314,10 @@ function pi(n) {
 
     validarParametro(n, 1);
 
-    var i = 1;
-    var s = -1;
-    var d = -1;
-    var p = 0;
+    let i = 1;
+    let s = -1;
+    let d = -1;
+    let p = 0;
 
     while (i <= n) {
         d = d + 2;
@@ -345,10 +345,10 @@ function logaritmoNatural(n, k) {
     validarParametro(n, 1);
     validarParametro(k, 2);
 
-    var i = 2;
-    var e = 1 + n;
-    var numerador = n;
-    var denominador = 1;
+    let i = 2;
+    let e = 1 + n;
+    let numerador = n;
+    let denominador = 1;
 
     while (i <= k) {
         numerador = numerador * numerador;
@@ -378,12 +378,13 @@ function razaoAurea(x, y, k) {
     validarParametro(k, 1);
 
 
-    var c = y;
-    var a = x;
-    var i = 1;
+    let c = y;
+    let a = x;
+    let i = 1;
+    let t;
 
     while (i <= k) {
-        var t = c;
+        t = c;
         c = c + a;
         a = t;
         i = i + 1;
@@ -404,8 +405,8 @@ function quadradoPerfeito(n) {
 
     validarParametro(n, 1);
 
-    var i = 1;
-    var s = 1;
+    let i = 1;
+    let s = 1;
 
     while (s < n) {
         i = i + 2;
@@ -429,7 +430,7 @@ function raiz(n, i) {
 
     validarParametro(n, 1);
 
-    var r = 1;
+    let r = 1;
 
     while (0 <= i) {
         r = (r + n / r) / 2;
@@ -451,7 +452,7 @@ function primo(n) {
 
     validarParametro(n, 2);
 
-    var i = 2;
+    let i = 2;
 
     while (i < n) {
         if (n % i == 0) return false;
@@ -476,13 +477,14 @@ function crivoEratostenes(a, n) {
     validarParametro(n, 2);
     validarVetorCrivo(a, n);
 
-    var i = 2;
-    var limite = Math.floor(Math.sqrt(n));
+    let i = 2;
+    const limite = Math.floor(Math.sqrt(n));
+    let multiplo;
 
     while (i <= limite) {
         if (a[i] == 0) {
 
-            var multiplo = i + i;
+            multiplo = i + i;
 
             while (multiplo <= n) {
                 a[multiplo] = 1;
@@ -510,8 +512,10 @@ function mdc(a, b) {
     validarParametro(b, 1);
     validarParametro(a, b);
 
+    let m;
+
     while (b != 0) {
-        var m = a % b;
+        m = a % b;
         a = b;
         b = m;
     }
@@ -561,8 +565,8 @@ function horner(x, g, a) {
     validarParametro(x);
     validarParametro(g, 1);
 
-    var p = a[g];
-    var i = g - 1;
+    let p = a[g];
+    let i = g - 1;
 
     while (0 <= i) {
         p = p * x + a[i];
@@ -587,17 +591,18 @@ function fibonacci(n) {
     validarParametro(n, 0);
 
     n++;
-    var a = 0;
-    var c = 1;
+    let a = 0;
+    let c = 1;
 
     if ((n == 0) || (n == 1)) {
         return n;
     }
 
-    var i = 2;
+    let i = 2;
+    let t;
 
     while (i <= n) {
-        var t = c;
+        t = c;
         c = c + a;
         a = t;
         i = i + 1;
@@ -618,11 +623,11 @@ function cpf(d) {
 
     validarCpf(d);
 
-    var j = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
-    var k = d[2] + 2 * d[3] + 3 * d[4] + 4 * d[5] + 5 * d[6] + 6 * d[7] + 7 * d[8] + 8 * d[9] + 9 * d[10];
+    const j = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
+    const k = d[2] + 2 * d[3] + 3 * d[4] + 4 * d[5] + 5 * d[6] + 6 * d[7] + 7 * d[8] + 8 * d[9] + 9 * d[10];
 
-    var dj = ((j % 11) % 10);
-    var dk = ((k % 11) % 10);
+    const dj = ((j % 11) % 10);
+    const dk = ((k % 11) % 10);
 
     return (dj == d[10] && dk == d[11]);
 }
@@ -640,9 +645,9 @@ function cpf2(d) {
 
     validarCpf(d);
 
-    var c = 8;
-    var p = d[9];
-    var s = d[9];
+    let c = 8;
+    let p = d[9];
+    let s = d[9];
 
     while (1 <= c) {
         p = p + d[c];
@@ -650,8 +655,8 @@ function cpf2(d) {
         c = c - 1;
     }
 
-    var j = ((s % 11) % 10);
-    var k = (((s - p + 9 * d[10]) % 11) % 10);
+    const j = ((s % 11) % 10);
+    const k = (((s - p + 9 * d[10]) % 11) % 10);
 
     return j == d[10] && k == d[11];
 }
