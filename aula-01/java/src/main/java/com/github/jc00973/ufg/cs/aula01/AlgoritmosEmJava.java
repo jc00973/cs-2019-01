@@ -206,10 +206,11 @@ public final class AlgoritmosEmJava {
         final int aux4 = 4;
         final int aux5 = 5;
         final int aux6 = 6;
-        final int aux7 = 100;
-        final int aux8 = 400;
+        final int aux7 = 7;
+        final int aux8 = 100;
+        final int aux9 = 400;
 
-        final int s = (dia + aux2 * mes + (aux3 * (mes + aux1)) / aux5 + ano + ano / aux4 - ano / aux7 + ano / aux8);
+        final int s = (dia + aux2 * mes + (aux3 * (mes + aux1)) / aux5 + ano + ano / aux4 - ano / aux8 + ano / aux9);
 
         return s % aux7;
     }
@@ -694,6 +695,11 @@ public final class AlgoritmosEmJava {
      */
 
     public static boolean cpf2(final int[] d) {
+
+        final int digito8 = 8;
+        final int digito9 = 9;
+        final int digito10 = 10;
+        final int digito11 = 11;
 
         validarCpf(d);
 
