@@ -73,7 +73,6 @@ public final class ExceptionUtils {
      * @throws {IllegalArgumentException} Caso o vetor não atenda aos requisitos definidos.
      */
 
-
     public static void validarVetorCrivo(final int[] vetor, final int n) {
 
         int i = 2;

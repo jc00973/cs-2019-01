@@ -43,6 +43,7 @@ public final class AlgoritmosEmJava {
         final int valorMinParam153 = 100;
         final int valorMaxParam153 = 999;
         final int valorExpoente = 3;
+        final double epsilon = 0.01;
 
         ExceptionUtils.validarParametro(n, valorMinParam153, valorMaxParam153);
 
@@ -55,7 +56,7 @@ public final class AlgoritmosEmJava {
         final double y = Math.pow(d, valorExpoente);
         final double z = Math.pow(u, valorExpoente);
 
-        return x + y + z == n;
+        return Math.abs(x + y + z - n) < epsilon;
     }
 
     /**
@@ -85,7 +86,7 @@ public final class AlgoritmosEmJava {
         int mes = m;
         int ano = a;
 
-        if ((mes == 1 || mes == 2) && ano == a) {
+        if ((mes == 1 || mes == 2) && ano > 0) {
             mes = mes + valorMaxMes;
             ano--;
         }
@@ -187,7 +188,7 @@ public final class AlgoritmosEmJava {
         int totalParcelas = a;
         int parcela = b;
 
-        if (b < a && totalParcelas == a && parcela == b) {
+        if (b < a && totalParcelas >= 0 && parcela >= 0) {
             totalParcelas = b;
             parcela = a;
         }
@@ -471,8 +472,9 @@ public final class AlgoritmosEmJava {
 
         double numerador = a;
         double denominador = b;
+        final double epsilon = 0.01;
 
-        while (numerador != denominador) {
+        while (Math.abs(numerador - denominador) > epsilon) {
             if (numerador > denominador) {
                 numerador = numerador - denominador;
             } else {
