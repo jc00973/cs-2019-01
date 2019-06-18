@@ -2,7 +2,9 @@ language: java
 
 script:
   - cd aula-01/java && mvn test checkstyle:check pmd:check spotbugs:check
+  - ls
   - cd
+  - ls
   - cd aula-07/vetor/java && mvn checkstyle:check pmd:check spotbugs:check
 cache:
   directories:
