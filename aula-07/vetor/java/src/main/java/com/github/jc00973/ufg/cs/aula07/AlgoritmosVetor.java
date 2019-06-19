@@ -23,9 +23,9 @@ public final class AlgoritmosVetor {
 
         float menorTemperatura = temperaturas[0];
 
-        for (final float temp : temperaturas) {
-            if (temp < menorTemperatura) {
-                menorTemperatura = temp;
+        for (int i = 0; i < temperaturas.length; i++) {
+            if (temperaturas[i] < menorTemperatura) {
+                menorTemperatura = temperaturas[i];
             }
         }
 
@@ -43,9 +43,9 @@ public final class AlgoritmosVetor {
 
         int soma = 0;
 
-        for (final int num : vetor) {
-            if (num % 2 != 0) {
-                soma = soma + num;
+        for (int i = 0; i < vetor.length && soma >= 0; i++) {
+            if (vetor[i] % 2 != 0) {
+                soma = soma + vetor[i];
             }
         }
 
@@ -61,17 +61,17 @@ public final class AlgoritmosVetor {
      * @return A quantidade de valores no vetor iguais ao elemento.
      */
 
-    public static int quantidadeElementosIguais(final int[] vetor, int elemento) {
+    public static int quantidadeElementosIguais(final int[] vetor, final int elemento) {
 
-        int qtdElementosIguais = 0;
+        int qtdElemIguais = 0;
 
-        for (final int num : vetor) {
+        for (int i = 0; i < vetor.length; i++) {
             if (num == elemento) {
-                qtdElementosIguais++;
+                qtdElemIguais++;
             }
         }
 
-        return qtdElementosIguais;
+        return qtdElemIguais;
     }
 
     /**
@@ -83,7 +83,7 @@ public final class AlgoritmosVetor {
 
     public static int[] contarLetra(final String palavra) {
 
-        char[] palavraVetor = palavra.toCharArray();
+        final char[] palavraVetor = palavra.toCharArray();
         int[] qtdLetra = new int[palavraVetor.length];
 
         for (int i = 0; i < palavraVetor.length; i++) {
@@ -121,7 +121,7 @@ public final class AlgoritmosVetor {
         int maiorQtd = 0;
         int maiorQtdPosicao = 0;
 
-        for (int k = 0; k < palavras.length; k++) {
+        for (int k = 0; k < palavras.length && maiorQtdPosicao >= 0 && maiorQtd >= 0; k++) {
             if (qtdPalavra[k] > maiorQtd) {
                 maiorQtd = qtdPalavra[k];
                 maiorQtdPosicao = k;
@@ -143,22 +143,24 @@ public final class AlgoritmosVetor {
 
     public static Collection<String> verificarMaisSorteado() {
 
-        Random gerador = new Random();
-        int[] qtdSorteada = new int[1000];
-        int maiorQtdSorteio = 0;
-        Collection<String> maisSorteados = new ArrayList();
+        final int valorMaxSorteavel = 1000;
 
-        for (int i = 0; i < 1000000; i++) {
-            qtdSorteada[gerador.nextInt(1000)]++;
+        final Random gerador = new Random();
+        int[] qtdSorteada = new int[valorMaxSorteavel];
+        int maiorQtdSorteio = 0;
+        final Collection<String> maisSorteados = new ArrayList();
+
+        for (int i = 0; i < qtdNumSorteados; i++) {
+            qtdSorteada[gerador.nextInt(valorMaxSorteavel)]++;
         }
 
-        for (int j = 0; j < 1000; j++) {
+        for (int j = 0; j < valorMaxSorteavel; j++) {
             if (qtdSorteada[j] > maiorQtdSorteio) {
                 maiorQtdSorteio = qtdSorteada[j];
             }
         }
 
-        for (int k = 0; k < 1000; k++) {
+        for (int k = 0; k < valorMaxSorteavel; k++) {
             if (qtdSorteada[k] == maiorQtdSorteio) {
                 maisSorteados.add(k + " foi sorteado " + maiorQtdSorteio + " vezes.");
             }
