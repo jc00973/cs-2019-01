@@ -86,7 +86,7 @@ public final class AlgoritmosEmJava {
         int mes = m;
         int ano = a;
 
-        if ((mes == 1 || mes == 2) && ano > 0) {
+        if (mes == 1 || mes == 2) {
             mes = mes + valorMaxMes;
             ano--;
         }
@@ -142,7 +142,7 @@ public final class AlgoritmosEmJava {
         int i = 2;
         int s = 1;
 
-        while (i <= n && s >= 0) {
+        while (i <= n) {
             s = s + i;
             i = i + 1;
         }
@@ -164,7 +164,7 @@ public final class AlgoritmosEmJava {
         int i = 2;
         int f = 1;
 
-        while (i <= n && f >= 1) {
+        while (i <= n) {
             f = f * i;
             i = i + 1;
         }
@@ -188,7 +188,7 @@ public final class AlgoritmosEmJava {
         int totalParcelas = a;
         int parcela = b;
 
-        if (b < a && totalParcelas >= 0 && parcela >= 0) {
+        if (b < a) {
             totalParcelas = b;
             parcela = a;
         }
@@ -196,7 +196,7 @@ public final class AlgoritmosEmJava {
         int i = 1;
         int s = 0;
 
-        while (i <= totalParcelas && parcela >= 0 && s >= 0) {
+        while (i <= totalParcelas) {
             s = s + parcela;
             i = i + 1;
         }
@@ -221,7 +221,7 @@ public final class AlgoritmosEmJava {
         int potencia = 1;
         int i = 1;
 
-        while (i <= y && potencia >= 0) {
+        while (i <= y) {
             potencia = produto(potencia, x);
             i = i + 1;
         }
@@ -248,7 +248,7 @@ public final class AlgoritmosEmJava {
 
         final int numLeibniz = 4;
 
-        while (i <= n && s >= -1 && d >= -1 && p >= 0 && numLeibniz >= 0) {
+        while (i <= n) {
             d = d + 2;
             s = -1 * s;
             p = p + numLeibniz * s / d;
@@ -278,7 +278,7 @@ public final class AlgoritmosEmJava {
         double numerador = n;
         double denominador = 1;
 
-        while (i <= k && e >= 0 && numerador >= 0 && denominador >= 0) {
+        while (i <= k) {
             numerador = numerador * numerador;
             denominador = denominador + i;
             e = e + numerador / denominador;
@@ -310,7 +310,7 @@ public final class AlgoritmosEmJava {
         double i = 1;
         double t = 0;
 
-        while (i <= k && i >= 0 && t >= 0) {
+        while (i <= k) {
             t = c;
             c = c + a;
             a = t;
@@ -334,7 +334,7 @@ public final class AlgoritmosEmJava {
         int i = 1;
         int s = 1;
 
-        while (s < n && i >= 0) {
+        while (s < n) {
             i = i + 2;
             s = s + i;
         }
@@ -358,7 +358,7 @@ public final class AlgoritmosEmJava {
         double r = 1;
         double qtdRepeticao = i;
 
-        while (0 <= qtdRepeticao && r >= 0) {
+        while (0 <= qtdRepeticao) {
             r = (r + n / r) / 2;
             qtdRepeticao = qtdRepeticao - 1;
         }
@@ -408,7 +408,7 @@ public final class AlgoritmosEmJava {
         int i = 2;
         final double limite = Math.floor(Math.sqrt(n));
 
-        for (int j = 0; j < a.length && vetor[j] == a[j]; j++) {
+        for (int j = 0; j < a.length; j++) {
             System.arraycopy(a, 0, vetor, 0, a.length);
         }
 
@@ -417,7 +417,7 @@ public final class AlgoritmosEmJava {
 
                 int multiplo = i + i;
 
-                while (multiplo <= n && vetor[multiplo] == a[multiplo]) {
+                while (multiplo <= n) {
                     vetor[multiplo] = 1;
                     multiplo = multiplo + i;
                 }
@@ -446,7 +446,7 @@ public final class AlgoritmosEmJava {
         double denominador = b;
         double m = 0;
 
-        while (denominador != 0 && m >= 0) {
+        while (denominador != 0) {
             m = numerador % denominador;
             numerador = denominador;
             denominador = m;
@@ -501,7 +501,7 @@ public final class AlgoritmosEmJava {
         double p = a[g];
         int i = g - 1;
 
-        while (0 <= i && p >= 0) {
+        while (0 <= i) {
             p = p * x + a[i];
             i = i - 1;
         }
@@ -535,7 +535,7 @@ public final class AlgoritmosEmJava {
         int a = 0;
         int c = 1;
 
-        while (i <= posicaoDesejada && t >= 0 && a >= 0) {
+        while (i <= posicaoDesejada) {
             t = c;
             c = c + a;
             a = t;
@@ -600,7 +600,7 @@ public final class AlgoritmosEmJava {
         int p = d[digito9];
         int s = d[digito9];
 
-        while (1 <= c && p >= 0 && s >= 0) {
+        while (1 <= c) {
             p = p + d[c];
             s = s + p;
             c = c - 1;
