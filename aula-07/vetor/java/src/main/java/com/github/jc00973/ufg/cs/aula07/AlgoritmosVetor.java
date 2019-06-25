@@ -43,7 +43,7 @@ public final class AlgoritmosVetor {
 
         int soma = 0;
 
-        for (int i = 0; i < vetor.length && soma >= 0; i++) {
+        for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] % 2 != 0) {
                 soma = soma + vetor[i];
             }
@@ -66,7 +66,7 @@ public final class AlgoritmosVetor {
         int qtdElemIguais = 0;
 
         for (int i = 0; i < vetor.length; i++) {
-            if (num == elemento) {
+            if (vetor[i] == elemento) {
                 qtdElemIguais++;
             }
         }
@@ -121,7 +121,7 @@ public final class AlgoritmosVetor {
         int maiorQtd = 0;
         int maiorQtdPosicao = 0;
 
-        for (int k = 0; k < palavras.length && maiorQtdPosicao >= 0 && maiorQtd >= 0; k++) {
+        for (int k = 0; k < palavras.length; k++) {
             if (qtdPalavra[k] > maiorQtd) {
                 maiorQtd = qtdPalavra[k];
                 maiorQtdPosicao = k;
@@ -144,6 +144,7 @@ public final class AlgoritmosVetor {
     public static Collection<String> verificarMaisSorteado() {
 
         final int valorMaxSorteavel = 1000;
+        final int qtdNumSorteados = 1_000_000;
 
         final Random gerador = new Random();
         int[] qtdSorteada = new int[valorMaxSorteavel];
