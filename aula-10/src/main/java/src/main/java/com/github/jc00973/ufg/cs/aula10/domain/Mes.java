@@ -10,7 +10,10 @@ import java.util.Random;
 
 public final class Mes {
 
-    private Mes() { };
+    private Mes() {
+    }
+
+    ;
 
     /**
      * Valor correspondente ao mês de janeiro.

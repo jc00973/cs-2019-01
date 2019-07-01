@@ -10,7 +10,10 @@ import java.util.Random;
 
 public final class CalendarioUtils {
 
-    private CalendarioUtils() { };
+    private CalendarioUtils() {
+    }
+
+    ;
 
     /**
      * Valor correspondente ao mês com 28 dias.
