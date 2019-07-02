@@ -26,32 +26,16 @@ public final class Data {
         return ano;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-
     public int getMes() {
         return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
     }
 
     public int getDia() {
         return dia;
     }
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
     public int getDiaDaSemana() {
         return diaDaSemana;
-    }
-
-    public void setDiaDaSemana(int diaDaSemana) {
-        this.diaDaSemana = diaDaSemana;
     }
 
     /**
@@ -112,10 +96,15 @@ public final class Data {
         if (dia > 1) {
 
             dia--;
+            voltarDiaDaSemana();
+            return;
 
         } else if (mes == Mes.JANEIRO) {
             dia = Mes.MES31;
+            mes = Mes.DEZEMBRO;
             ano--;
+            voltarDiaDaSemana();
+            return;
 
         } else if (mes == Mes.FEVEREIRO) {
             dia = Mes.MES31;
@@ -165,6 +154,8 @@ public final class Data {
 
             avancarDiaDaSemana();
 
+            return;
+
         } else if (mes == Mes.JANEIRO) {
 
             if (dia < Mes.MES31) {
@@ -176,13 +167,11 @@ public final class Data {
 
         } else if (mes == Mes.FEVEREIRO) {
 
-            if (dia < Mes.MES28) {
-                dia++;
-            } else if (ehAnoBissexto(ano, anoReferencia)) {
+            if (ehAnoBissexto(ano, anoReferencia)) {
 
                 if (dia == Mes.MES28) {
                     dia++;
-                } else if (dia == Mes.MES29) {
+                } else {
                     dia = 1;
                     mes++;
                 }
@@ -274,7 +263,7 @@ public final class Data {
                 mes++;
             }
 
-        } else if (mes == Mes.DEZEMBRO) {
+        } else {
 
             if (dia < Mes.MES31) {
                 dia++;
