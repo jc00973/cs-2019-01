@@ -1,7 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
 /**
- * Implementação em Java da ordem de serviço proposta na aula 10.
+ * Classe dia que contém os valores correspondentes ao dias da semana.
  */
 
 import java.util.Collection;
@@ -10,10 +10,7 @@ import java.util.Random;
 
 public final class Dia {
 
-    private Dia() {
-    }
-
-    ;
+    private Dia() { };
 
     /**
      * Valor correspondente ao dia de segunda-feira.

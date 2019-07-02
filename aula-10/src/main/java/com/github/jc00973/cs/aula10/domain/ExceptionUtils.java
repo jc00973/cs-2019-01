@@ -1,7 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
 /**
- * Implementação em Java da ordem de serviço proposta na aula 10.
+ * Classe de validação das entradas.
  */
 
 import java.util.Collection;
@@ -10,11 +10,15 @@ import java.util.Random;
 
 public final class ExceptionUtils {
 
-    private ExceptionUtils() {
-    }
+    private ExceptionUtils() { };
 
-    ;
-
+    /**
+     * A função verifica se a data informada é válida.
+     *
+     * @param data Data que será validada.
+     * @param anoBissexto Ano bissexto de referência.
+     * @throws {IllegalArgumentException} Caso a data seja inválida.
+     */
     public static void validarData(String data, int anoBissexto) {
 
         if (data.length() != 8) {
@@ -34,7 +38,7 @@ public final class ExceptionUtils {
         }
 
         if (dia < 1 || dia > 31) {
-            throw new IllegalArgumentException("Dia inválido!"+mes+" "+dia);
+            throw new IllegalArgumentException("Dia inválido!");
         }
 
         if (mes == Mes.JANEIRO) {
@@ -102,6 +106,12 @@ public final class ExceptionUtils {
         }
     }
 
+    /**
+     * A função verifica se o valor referente à um dia da semana é válido.
+     *
+     * @param int Dia que será validado.
+     * @throws {IllegalArgumentException} Caso o dia seja inválido.
+     */
     public static void validarDiaSemana(int diaSemana) {
         if (diaSemana < 0 || diaSemana > 6) {
             throw new IllegalArgumentException("Dia da semana inválido!");

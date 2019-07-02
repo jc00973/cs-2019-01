@@ -1,7 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
 /**
- * Implementação em Java da ordem de serviço proposta na aula 10.
+ * Classe utilitária de data que verifica o dia da semana de uma data usando outra data como referência.
  */
 
 import java.util.Collection;
@@ -10,11 +10,14 @@ import java.util.Random;
 
 public final class DataUtils {
 
-    private DataUtils() {
-    }
+    private DataUtils() { };
 
-    ;
-
+    /**
+     * A função verifica se a data interessada é posterior à data de referência.
+     *
+     * @param dataInteresse A data na qual se quer saber se é ou não posterior à referência.
+     * @param dataReferencia A data de referência para a verificação de posterioridade.
+     */
     public static boolean ehDataFutura(Data dataInteresse, Data dataReferencia) {
 
         if (dataInteresse.getAno() > dataReferencia.getAno()) {
@@ -33,6 +36,18 @@ public final class DataUtils {
 
     }
 
+    /**
+     * A função caminha da data de referência até a data interessada, visando calcular o dia da semana da
+     * data interessada.
+     *
+     * @param dataInteresseStr Entrada de texto referente à data interessada.
+     * @param anoBissexto O ano bissexto de referência.
+     * @param dataReferenciaStr Entrada de texto referente à data de referência.
+     * @param diaSemanaReferencia O dia da semana da data de referência.
+     * @return Retorna o número do dia da semana corespondente a data interessada (0 para segunda, 1 para terça,
+     * 2 para quarta, 3, para quinta, 4 para sexta, 5 para sábado e 6 para domingo) ou -1 caso algum para os dados
+     * de entrada não sejam atendidos.
+     */
     public static int calcularData(String dataInteresseStr, int anoBissexto, String dataReferenciaStr, int diaSemanaReferencia) {
 
         try {

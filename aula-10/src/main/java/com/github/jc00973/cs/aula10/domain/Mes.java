@@ -1,7 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
 /**
- * Implementação em Java da ordem de serviço proposta na aula 10.
+ * Classe com os valores correspondentes aos meses e também com os valores possíveis de dias em um mês.
  */
 
 import java.util.Collection;
@@ -10,10 +10,7 @@ import java.util.Random;
 
 public final class Mes {
 
-    private Mes() {
-    }
-
-    ;
+    private Mes() { };
 
     /**
      * Valor correspondente ao mês de janeiro.
@@ -81,17 +78,17 @@ public final class Mes {
     public static final int MES28 = 28;
 
     /**
-     * Valor correspondente ao mês com 28 dias.
+     * Valor correspondente ao mês com 29 dias.
      */
     public static final int MES29 = 29;
 
     /**
-     * Valor correspondente ao mês com 28 dias.
+     * Valor correspondente ao mês com 30 dias.
      */
     public static final int MES30 = 30;
 
     /**
-     * Valor correspondente ao mês com 28 dias.
+     * Valor correspondente ao mês com 31 dias.
      */
     public static final int MES31 = 31;
 

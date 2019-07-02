@@ -1,7 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
 /**
- * Implementação em Java da ordem de serviço proposta na aula 10.
+ * Entidade data e suas funções de operação para verificar se um ano é bissexto, avançar ou recuar dia.
  */
 
 import java.util.Collection;
@@ -54,6 +54,9 @@ public final class Data {
         this.diaDaSemana = diaDaSemana;
     }
 
+    /**
+     * A função volta um dia na semana.
+     */
     public void voltarDiaDaSemana() {
         if (diaDaSemana == Dia.SEGUNDA) {
             diaDaSemana = Dia.DOMINGO;
@@ -62,6 +65,9 @@ public final class Data {
         }
     }
 
+    /**
+     * A função avança um dia na semana.
+     */
     public void avancarDiaDaSemana() {
         if (diaDaSemana == Dia.DOMINGO) {
             diaDaSemana = Dia.SEGUNDA;
@@ -70,6 +76,13 @@ public final class Data {
         }
     }
 
+    /**
+     * A função verifica se o ano interessado é ou não bissexto com base no ano bissexto de referência.
+     *
+     * @param anoInteressado O ano que se quer saber se é bissexto ou não.
+     * @param anoReferencia O ano bissexto de referência.
+     * @return Retorna verdadeiro ou falso para a verificação de se o ano é ou não bissexto.
+     */
     public static boolean ehAnoBissexto(int anoInteressado, int anoReferencia) {
 
         if ((anoInteressado - anoReferencia) % 4 == 0) {
@@ -89,16 +102,18 @@ public final class Data {
         }
     }
 
+    /**
+     * A função volta um dia na data de referência em direção à data interessada.
+     *
+     * @param anoReferencia O ano bissexto de referência.
+     */
     public void voltarDia(int anoReferencia) {
 
         if (dia > 1) {
 
             dia--;
 
-            return;
-        }
-
-        if (mes == Mes.JANEIRO) {
+        } else if (mes == Mes.JANEIRO) {
             dia = Mes.MES31;
             ano--;
 
@@ -137,6 +152,11 @@ public final class Data {
 
     }
 
+    /**
+     * A função avança um dia na data de referência em direção à data interessada.
+     *
+     * @param anoReferencia O ano bissexto de referência.
+     */
     public void avancarDia(int anoReferencia) {
 
         if (dia < 28) {
@@ -144,10 +164,9 @@ public final class Data {
             dia++;
 
             avancarDiaDaSemana();
-            return;
-        }
 
-        if (mes == Mes.JANEIRO) {
+        } else if (mes == Mes.JANEIRO) {
+
             if (dia < Mes.MES31) {
                 dia++;
             } else {
@@ -163,7 +182,7 @@ public final class Data {
 
                 if (dia == Mes.MES28) {
                     dia++;
-                } else if (dia == Mes.MES29){
+                } else if (dia == Mes.MES29) {
                     dia = 1;
                     mes++;
                 }
@@ -267,6 +286,5 @@ public final class Data {
         }
 
         avancarDiaDaSemana();
-        return;
     }
 }
