@@ -1,4 +1,4 @@
-package com.github.jc00973.ufg.cs.aula10;
+package com.github.jc00973.cs.aula10.domain;
 
 /**
  * Implementação em Java da ordem de serviço proposta na aula 10.
@@ -143,6 +143,7 @@ public final class Data {
 
             dia++;
 
+            avancarDiaDaSemana();
             return;
         }
 
@@ -162,7 +163,7 @@ public final class Data {
 
                 if (dia == Mes.MES28) {
                     dia++;
-                } else {
+                } else if (dia == Mes.MES29){
                     dia = 1;
                     mes++;
                 }
@@ -266,5 +267,6 @@ public final class Data {
         }
 
         avancarDiaDaSemana();
+        return;
     }
 }

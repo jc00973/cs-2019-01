@@ -1,4 +1,4 @@
-package com.github.jc00973.ufg.cs.aula10;
+package com.github.jc00973.cs.aula10.domain;
 
 /**
  * Implementação em Java da ordem de serviço proposta na aula 10.
@@ -25,16 +25,16 @@ public final class ExceptionUtils {
             throw new IllegalArgumentException("O primeiro dígito deve ser diferente de zero!");
         }
 
-        int ano = Integer.parseInt(data.substring(0, 3));
-        int mes = Integer.parseInt(data.substring(4, 5));
-        int dia = Integer.parseInt(data.substring(6, 7));
+        int ano = Integer.parseInt(data.substring(0, 4));
+        int mes = Integer.parseInt(data.substring(4, 6));
+        int dia = Integer.parseInt(data.substring(6, 8));
 
         if (mes < 1 || mes > 12) {
             throw new IllegalArgumentException("Mês inválido!");
         }
 
         if (dia < 1 || dia > 31) {
-            throw new IllegalArgumentException("Dia inválido!");
+            throw new IllegalArgumentException("Dia inválido!"+mes+" "+dia);
         }
 
         if (mes == Mes.JANEIRO) {
@@ -100,8 +100,6 @@ public final class ExceptionUtils {
                 throw new IllegalArgumentException("Dia inválido para o mês informado!");
             }
         }
-
-
     }
 
     public static void validarDiaSemana(int diaSemana) {
@@ -109,6 +107,4 @@ public final class ExceptionUtils {
             throw new IllegalArgumentException("Dia da semana inválido!");
         }
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.github.jc00973.ufg.cs.aula10;
+package com.github.jc00973.cs.aula10.domain;
 
 /**
  * Implementação em Java da ordem de serviço proposta na aula 10.
