@@ -87,6 +87,7 @@ public class DataUtilsTest {
         assertEquals(4, DataUtils.calcularData("20181130", 2017, "20191130", 5));
         assertEquals(1, DataUtils.calcularData("20191101", 2019, "20191001", 5));
         assertEquals(0, DataUtils.calcularData("20191130", 2019, "20181130", 5));
+        assertEquals(0, DataUtils.receberEntrada("20191130 2019 20181130 5"));
 
     }
 

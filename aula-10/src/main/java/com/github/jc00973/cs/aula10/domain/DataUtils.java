@@ -3,13 +3,11 @@ package com.github.jc00973.cs.aula10.domain;
 /**
  * Classe utilitária de data que verifica o dia da semana de uma data usando outra data como referência.
  */
-
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.Random;
-
 public final class DataUtils {
 
+    /**
+     * Construtor privado para evitar instanciação indevida.
+     */
     private DataUtils() { };
 
     /**
@@ -17,8 +15,9 @@ public final class DataUtils {
      *
      * @param dataInteresse A data na qual se quer saber se é ou não posterior à referência.
      * @param dataReferencia A data de referência para a verificação de posterioridade.
+     * @return Retorna se a data interessada é futura ou não em relação à data de referência.
      */
-    public static boolean ehDataFutura(Data dataInteresse, Data dataReferencia) {
+    public static boolean ehDataFutura(final Data dataInteresse, final Data dataReferencia) {
 
         if (dataInteresse.getAno() > dataReferencia.getAno()) {
             return true;
@@ -30,10 +29,9 @@ public final class DataUtils {
             return false;
         } else if (dataInteresse.getDia() > dataReferencia.getDia()) {
             return true;
-        } else {
-            return false;
         }
 
+        return false;
     }
 
     /**
@@ -48,7 +46,8 @@ public final class DataUtils {
      * 2 para quarta, 3, para quinta, 4 para sexta, 5 para sábado e 6 para domingo) ou -1 caso algum para os dados
      * de entrada não sejam atendidos.
      */
-    public static int calcularData(String dataInteresseStr, int anoBissexto, String dataReferenciaStr, int diaSemanaReferencia) {
+    public static int calcularData(final String dataInteresseStr, final int anoBissexto,
+                                   final String dataReferenciaStr, final int diaSemanaReferencia) {
 
         try {
 
@@ -56,13 +55,17 @@ public final class DataUtils {
             ExceptionUtils.validarData(dataReferenciaStr, anoBissexto);
             ExceptionUtils.validarDiaSemana(diaSemanaReferencia);
 
-            int anoInteresse = Integer.parseInt(dataInteresseStr.substring(0, 4));
-            int mesInteresse = Integer.parseInt(dataInteresseStr.substring(4, 6));
-            int diaInteresse = Integer.parseInt(dataInteresseStr.substring(6, 8));
+            final int finalAnoStr = 4;
+            final int finalMesStr = 6;
+            final int tamanhoData = 8;
 
-            int anoReferencia = Integer.parseInt(dataReferenciaStr.substring(0, 4));
-            int mesReferencia = Integer.parseInt(dataReferenciaStr.substring(4, 6));
-            int diaReferencia = Integer.parseInt(dataReferenciaStr.substring(6, 8));
+            int anoInteresse = Integer.parseInt(dataInteresseStr.substring(0, finalAnoStr));
+            int mesInteresse = Integer.parseInt(dataInteresseStr.substring(finalAnoStr, finalMesStr));
+            int diaInteresse = Integer.parseInt(dataInteresseStr.substring(finalMesStr, tamanhoData));
+
+            int anoReferencia = Integer.parseInt(dataReferenciaStr.substring(0, finalAnoStr));
+            int mesReferencia = Integer.parseInt(dataReferenciaStr.substring(finalAnoStr, finalMesStr));
+            int diaReferencia = Integer.parseInt(dataReferenciaStr.substring(finalMesStr, tamanhoData));
 
             Data dataInteresse = new Data(anoInteresse, mesInteresse, diaInteresse, 0);
             Data dataReferencia = new Data(anoReferencia, mesReferencia, diaReferencia, diaSemanaReferencia);
@@ -106,12 +109,19 @@ public final class DataUtils {
         }
     }
 
-    public static int receberEntrada(String args) {
+    public static int receberEntrada(final String args) {
 
-        String dataInteresse = args.substring(0, 8);
-        int anoBissexto = Integer.parseInt(args.substring(9, 13));
-        String dataReferencia = args.substring(14, 22);
-        int diaDaSemanaReferencia = Integer.parseInt(args.substring(23));
+        final int tamanhoDataStr = 8;
+        final int inicioBissextoStr = 9;
+        final int fimBissextoStr = 13;
+        final int inicioReferencia = 14;
+        final int fimReferencia = 22;
+        final int posicaoDia = 23;
+
+        String dataInteresse = args.substring(0, tamanhoDataStr);
+        int anoBissexto = Integer.parseInt(args.substring(inicioBissextoStr, fimBissextoStr));
+        String dataReferencia = args.substring(inicioReferencia, fimReferencia);
+        int diaDaSemanaReferencia = Integer.parseInt(args.substring(posicaoDia));
 
         return calcularData(dataInteresse, anoBissexto, dataReferencia, diaDaSemanaReferencia);
 

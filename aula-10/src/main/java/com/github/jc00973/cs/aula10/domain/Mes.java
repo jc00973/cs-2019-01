@@ -3,13 +3,11 @@ package com.github.jc00973.cs.aula10.domain;
 /**
  * Classe com os valores correspondentes aos meses e também com os valores possíveis de dias em um mês.
  */
-
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.Random;
-
 public final class Mes {
 
+    /**
+     * Construtor privado para evitar instanciação indevida.
+     */
     private Mes() { };
 
     /**

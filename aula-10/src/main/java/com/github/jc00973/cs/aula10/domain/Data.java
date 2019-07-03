@@ -3,24 +3,37 @@ package com.github.jc00973.cs.aula10.domain;
 /**
  * Entidade data e suas funções de operação para verificar se um ano é bissexto, avançar ou recuar dia.
  */
-
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.Random;
-
 public final class Data {
 
-    public Data(int ano, int mes, int dia, int diaDaSemana) {
+    /**
+     * Variável ano de uma data.
+     */
+    private int ano;
+
+    /**
+     * Variável mês de uma data.
+     */
+    private int mes;
+
+    /**
+     * Variável dia de uma data.
+     */
+    private int dia;
+
+    /**
+     * Variável dia da semana de uma data.
+     */
+    private int diaDaSemana;
+
+    /**
+     * Construtor do objeto data.
+     */
+    public Data(final int ano, final int mes, final int dia, final int diaDaSemana) {
         this.ano = ano;
         this.mes = mes;
         this.dia = dia;
         this.diaDaSemana = diaDaSemana;
     }
-
-    private int ano;
-    private int mes;
-    private int dia;
-    private int diaDaSemana;
 
     public int getAno() {
         return ano;
@@ -64,15 +77,19 @@ public final class Data {
      * A função verifica se o ano interessado é ou não bissexto com base no ano bissexto de referência.
      *
      * @param anoInteressado O ano que se quer saber se é bissexto ou não.
-     * @param anoReferencia O ano bissexto de referência.
+     * @param anoReferencia  O ano bissexto de referência.
      * @return Retorna verdadeiro ou falso para a verificação de se o ano é ou não bissexto.
      */
-    public static boolean ehAnoBissexto(int anoInteressado, int anoReferencia) {
+    public static boolean ehAnoBissexto(final int anoInteressado, final int anoReferencia) {
 
-        if ((anoInteressado - anoReferencia) % 4 == 0) {
-            if (anoInteressado % 100 == 0) {
+        final int intervaloBissexto = 4;
+        final int valorCem = 100;
+        final int valorQuatrocentos = 400;
 
-                return anoInteressado % 400 == 0;
+        if ((anoInteressado - anoReferencia) % intervaloBissexto == 0) {
+            if (anoInteressado % valorCem == 0) {
+
+                return anoInteressado % valorQuatrocentos == 0;
 
             } else {
 
@@ -91,7 +108,7 @@ public final class Data {
      *
      * @param anoReferencia O ano bissexto de referência.
      */
-    public void voltarDia(int anoReferencia) {
+    public void voltarDia(final int anoReferencia) {
 
         if (dia > 1) {
 
@@ -146,9 +163,9 @@ public final class Data {
      *
      * @param anoReferencia O ano bissexto de referência.
      */
-    public void avancarDia(int anoReferencia) {
+    public void avancarDia(final int anoReferencia) {
 
-        if (dia < 28) {
+        if (dia < Mes.MES28) {
 
             dia++;
 

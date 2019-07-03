@@ -3,13 +3,11 @@ package com.github.jc00973.cs.aula10.domain;
 /**
  * Classe dia que contém os valores correspondentes ao dias da semana.
  */
-
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.Random;
-
 public final class Dia {
 
+    /**
+     * Construtor privado para evitar instanciação indevida.
+     */
     private Dia() { };
 
     /**
