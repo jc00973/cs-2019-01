@@ -41,48 +41,42 @@ public final class DataUtils {
      * @param dataInteresseStr Entrada de texto referente à data interessada.
      * @param anoBissexto O ano bissexto de referência.
      * @param dataReferenciaStr Entrada de texto referente à data de referência.
-     * @param diaSemanaReferencia O dia da semana da data de referência.
+     * @param diaSemanaRef O dia da semana da data de referência.
      * @return Retorna o número do dia da semana corespondente a data interessada (0 para segunda, 1 para terça,
      * 2 para quarta, 3, para quinta, 4 para sexta, 5 para sábado e 6 para domingo) ou -1 caso algum para os dados
      * de entrada não sejam atendidos.
      */
     public static int calcularData(final String dataInteresseStr, final int anoBissexto,
-                                   final String dataReferenciaStr, final int diaSemanaReferencia) {
+                                   final String dataReferenciaStr, final int diaSemanaRef) {
 
         try {
 
             ExceptionUtils.validarData(dataInteresseStr, anoBissexto);
             ExceptionUtils.validarData(dataReferenciaStr, anoBissexto);
-            ExceptionUtils.validarDiaSemana(diaSemanaReferencia);
+            ExceptionUtils.validarDiaSemana(diaSemanaRef);
 
             final int finalAnoStr = 4;
             final int finalMesStr = 6;
             final int tamanhoData = 8;
 
-            int anoInteresse = Integer.parseInt(dataInteresseStr.substring(0, finalAnoStr));
-            int mesInteresse = Integer.parseInt(dataInteresseStr.substring(finalAnoStr, finalMesStr));
-            int diaInteresse = Integer.parseInt(dataInteresseStr.substring(finalMesStr, tamanhoData));
+            final int anoInteresse = Integer.parseInt(dataInteresseStr.substring(0, finalAnoStr));
+            final int mesInteresse = Integer.parseInt(dataInteresseStr.substring(finalAnoStr, finalMesStr));
+            final int diaInteresse = Integer.parseInt(dataInteresseStr.substring(finalMesStr, tamanhoData));
 
-            int anoReferencia = Integer.parseInt(dataReferenciaStr.substring(0, finalAnoStr));
-            int mesReferencia = Integer.parseInt(dataReferenciaStr.substring(finalAnoStr, finalMesStr));
-            int diaReferencia = Integer.parseInt(dataReferenciaStr.substring(finalMesStr, tamanhoData));
+            final int anoReferencia = Integer.parseInt(dataReferenciaStr.substring(0, finalAnoStr));
+            final int mesReferencia = Integer.parseInt(dataReferenciaStr.substring(finalAnoStr, finalMesStr));
+            final int diaReferencia = Integer.parseInt(dataReferenciaStr.substring(finalMesStr, tamanhoData));
 
-            Data dataInteresse = new Data(anoInteresse, mesInteresse, diaInteresse, 0);
-            Data dataReferencia = new Data(anoReferencia, mesReferencia, diaReferencia, diaSemanaReferencia);
+            final Data dataInteresse = new Data(anoInteresse, mesInteresse, diaInteresse, 0);
+            final Data dataReferencia = new Data(anoReferencia, mesReferencia, diaReferencia, diaSemanaRef);
 
-            if (diaInteresse == diaReferencia
-                    && mesInteresse == mesReferencia
-                    && anoInteresse == anoReferencia) {
-
-                return diaSemanaReferencia;
-
+            if (ehDataIgual(dataInteresse, dataReferencia)) {
+                return diaSemanaRef;
             }
 
             if (ehDataFutura(dataInteresse, dataReferencia)) {
 
-                while (diaInteresse != dataReferencia.getDia()
-                        || mesInteresse != dataReferencia.getMes()
-                        || anoInteresse != dataReferencia.getAno()) {
+                while (!ehDataIgual(dataInteresse, dataReferencia)) {
 
                     dataReferencia.avancarDia(anoBissexto);
                 }
@@ -91,9 +85,7 @@ public final class DataUtils {
 
             } else {
 
-                while (diaInteresse != dataReferencia.getDia()
-                        || mesInteresse != dataReferencia.getMes()
-                        || anoInteresse != dataReferencia.getAno()) {
+                while (!ehDataIgual(dataInteresse, dataReferencia)) {
 
                     dataReferencia.voltarDia(anoBissexto);
                 }
@@ -109,6 +101,29 @@ public final class DataUtils {
         }
     }
 
+    /**
+     * Método que verifica se as duas datas informadas são iguais.
+     *
+     * @param dataInteresse Data que será comparada.
+     * @param dataReferencia Data referência que será comparada.
+     * @return Retorna se as datas são iguais ou não.
+     */
+    public static boolean ehDataIgual(final Data dataInteresse, final Data dataReferencia) {
+
+        return dataInteresse.getDia() == dataReferencia.getDia()
+                && dataInteresse.getMes() == dataReferencia.getMes()
+                && dataInteresse.getAno() == dataReferencia.getAno();
+
+    }
+
+
+    /**
+     * Função que recebe a entrada como args, própria para utilização na função main do programa.
+     *
+     * @param args String contendo os dados da consulta (dataInteresse, anoBissexto, dataReferência e dia Referência).
+     * @return Retorna o dia da semana da data interessada com base na data de referência.
+     */
+
     public static int receberEntrada(final String args) {
 
         final int tamanhoDataStr = 8;
@@ -118,12 +133,12 @@ public final class DataUtils {
         final int fimReferencia = 22;
         final int posicaoDia = 23;
 
-        String dataInteresse = args.substring(0, tamanhoDataStr);
-        int anoBissexto = Integer.parseInt(args.substring(inicioBissextoStr, fimBissextoStr));
-        String dataReferencia = args.substring(inicioReferencia, fimReferencia);
-        int diaDaSemanaReferencia = Integer.parseInt(args.substring(posicaoDia));
+        final String dataInteresse = args.substring(0, tamanhoDataStr);
+        final int anoBissexto = Integer.parseInt(args.substring(inicioBissextoStr, fimBissextoStr));
+        final String dataReferencia = args.substring(inicioReferencia, fimReferencia);
+        final int diaReferencia = Integer.parseInt(args.substring(posicaoDia));
 
-        return calcularData(dataInteresse, anoBissexto, dataReferencia, diaDaSemanaReferencia);
+        return calcularData(dataInteresse, anoBissexto, dataReferencia, diaReferencia);
 
     }
 }

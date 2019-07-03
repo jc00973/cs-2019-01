@@ -6,11 +6,6 @@ package com.github.jc00973.cs.aula10.domain;
 public final class Dia {
 
     /**
-     * Construtor privado para evitar instanciação indevida.
-     */
-    private Dia() { };
-
-    /**
      * Valor correspondente ao dia de segunda-feira.
      */
     public static final int SEGUNDA = 0;
@@ -44,5 +39,10 @@ public final class Dia {
      * Valor correspondente ao dia de domingo.
      */
     public static final int DOMINGO = 6;
+
+    /**
+     * Construtor privado para evitar instanciação indevida.
+     */
+    private Dia() { };
 
 }

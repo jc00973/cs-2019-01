@@ -6,11 +6,6 @@ package com.github.jc00973.cs.aula10.domain;
 public final class Mes {
 
     /**
-     * Construtor privado para evitar instanciação indevida.
-     */
-    private Mes() { };
-
-    /**
      * Valor correspondente ao mês de janeiro.
      */
     public static final int JANEIRO = 1;
@@ -89,5 +84,10 @@ public final class Mes {
      * Valor correspondente ao mês com 31 dias.
      */
     public static final int MES31 = 31;
+
+    /**
+     * Construtor privado para evitar instanciação indevida.
+     */
+    private Mes() { };
 
 }

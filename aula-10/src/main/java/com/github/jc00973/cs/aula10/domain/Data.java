@@ -27,6 +27,11 @@ public final class Data {
 
     /**
      * Construtor do objeto data.
+     *
+     * @param ano Variável ano de uma data.
+     * @param mes Variável mes de uma data.
+     * @param dia Variável dia de uma data.
+     * @param diaDaSemana Variável dia da semana de uma data.
      */
     public Data(final int ano, final int mes, final int dia, final int diaDaSemana) {
         this.ano = ano;
@@ -110,7 +115,9 @@ public final class Data {
      */
     public void voltarDia(final int anoReferencia) {
 
-        if (dia > 1) {
+        final int menorDiaMes = 1;
+
+        if (dia > menorDiaMes) {
 
             dia--;
             voltarDiaDaSemana();
@@ -133,7 +140,21 @@ public final class Data {
                 dia = Mes.MES28;
             }
 
-        } else if (mes == Mes.ABRIL) {
+        } else {
+            mesAnterior();
+        }
+
+        mes--;
+        voltarDiaDaSemana();
+
+    }
+
+    /**
+     * O método retorna o dia para o último dia do mês anterior.
+     */
+    public void mesAnterior() {
+
+        if (mes == Mes.ABRIL) {
             dia = Mes.MES31;
         } else if (mes == Mes.MAIO) {
             dia = Mes.MES30;
@@ -152,11 +173,8 @@ public final class Data {
         } else {
             dia = Mes.MES30;
         }
-
-        mes--;
-        voltarDiaDaSemana();
-
     }
+
 
     /**
      * A função avança um dia na data de referência em direção à data interessada.
@@ -165,24 +183,7 @@ public final class Data {
      */
     public void avancarDia(final int anoReferencia) {
 
-        if (dia < Mes.MES28) {
-
-            dia++;
-
-            avancarDiaDaSemana();
-
-            return;
-
-        } else if (mes == Mes.JANEIRO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.FEVEREIRO) {
+        if (mes == Mes.FEVEREIRO) {
 
             if (ehAnoBissexto(ano, anoReferencia)) {
 
@@ -199,88 +200,7 @@ public final class Data {
                 mes++;
             }
 
-        } else if (mes == Mes.MARCO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.ABRIL) {
-
-            if (dia < Mes.MES30) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.MAIO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.JUNHO) {
-
-            if (dia < Mes.MES30) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.JULHO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.AGOSTO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.SETEMBRO) {
-
-            if (dia < Mes.MES30) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.OUTUBRO) {
-
-            if (dia < Mes.MES31) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else if (mes == Mes.NOVEMBRO) {
-
-            if (dia < Mes.MES30) {
-                dia++;
-            } else {
-                dia = 1;
-                mes++;
-            }
-
-        } else {
+        } else if (mes == Mes.DEZEMBRO) {
 
             if (dia < Mes.MES31) {
                 dia++;
@@ -289,8 +209,39 @@ public final class Data {
                 mes = Mes.JANEIRO;
                 ano++;
             }
+        } else if (temTrintaDias(mes)) {
+            incrementarDia(Mes.MES30);
+        } else {
+            incrementarDia(Mes.MES31);
         }
 
         avancarDiaDaSemana();
     }
+
+    /**
+     * A função incrementa um dia na data, observando se o próximo dia está no mesmo mês ou no mês seguinte.
+     * @param tamanhoMes O tamanho do mês atual que o dia será incrementado.
+     */
+    public void incrementarDia(final int tamanhoMes) {
+
+        if (dia < tamanhoMes) {
+            dia++;
+        } else {
+            dia = 1;
+            mes++;
+        }
+    }
+
+    /**
+     * A função verifica se o mês tem 30 dias.
+     * @param mes Mês que será analisado.
+     * @return Verdadeiro caso o mês tenha 30 dias.
+     */
+    public boolean temTrintaDias(final int mes) {
+
+        return mes == Mes.ABRIL || mes == Mes.JUNHO || mes == Mes.SETEMBRO || mes == Mes.NOVEMBRO;
+
+    }
 }
+
+
