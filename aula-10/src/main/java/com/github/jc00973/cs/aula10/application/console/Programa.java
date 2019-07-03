@@ -1,5 +1,7 @@
 package com.github.jc00973.cs.aula10.application.console;
 
+import com.github.jc00973.cs.aula10.domain.DataUtils;
+
 /**
  * Classe contendo o main do programa exigido na ordem de serviço proposta na aula 10.
  */
@@ -17,9 +19,9 @@ public final class Programa {
      *
      * @param args Argumentos que serão fornecidos no terminal.
      */
-    public static void main(final String[] args) {
+    public static void main(final String args) {
 
-
+        System.exit(DataUtils.receberEntrada(args));
     }
 
 }

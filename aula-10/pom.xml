@@ -792,6 +792,7 @@
                                     <goal>check</goal>
                                 </goals>
                                 <configuration>
+
                                     <rules>
                                         <rule implementation="org.jacoco.maven.RuleConfiguration">
                                             <element>BUNDLE</element>

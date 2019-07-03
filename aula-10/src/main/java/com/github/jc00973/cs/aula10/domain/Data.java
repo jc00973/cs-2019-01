@@ -132,7 +132,7 @@ public final class Data {
             dia = Mes.MES30;
         } else if (mes == Mes.NOVEMBRO) {
             dia = Mes.MES31;
-        } else if (mes == Mes.DEZEMBRO) {
+        } else {
             dia = Mes.MES30;
         }
 

@@ -67,7 +67,9 @@ public final class DataUtils {
             Data dataInteresse = new Data(anoInteresse, mesInteresse, diaInteresse, 0);
             Data dataReferencia = new Data(anoReferencia, mesReferencia, diaReferencia, diaSemanaReferencia);
 
-            if (diaInteresse == diaReferencia && mesInteresse == mesReferencia && anoInteresse == anoReferencia) {
+            if (diaInteresse == diaReferencia
+                    && mesInteresse == mesReferencia
+                    && anoInteresse == anoReferencia) {
 
                 return diaSemanaReferencia;
 
@@ -75,7 +77,8 @@ public final class DataUtils {
 
             if (ehDataFutura(dataInteresse, dataReferencia)) {
 
-                while (diaInteresse != dataReferencia.getDia() || mesInteresse != dataReferencia.getMes()
+                while (diaInteresse != dataReferencia.getDia()
+                        || mesInteresse != dataReferencia.getMes()
                         || anoInteresse != dataReferencia.getAno()) {
 
                     dataReferencia.avancarDia(anoBissexto);
@@ -85,7 +88,8 @@ public final class DataUtils {
 
             } else {
 
-                while (diaInteresse != dataReferencia.getDia() || mesInteresse != dataReferencia.getMes()
+                while (diaInteresse != dataReferencia.getDia()
+                        || mesInteresse != dataReferencia.getMes()
                         || anoInteresse != dataReferencia.getAno()) {
 
                     dataReferencia.voltarDia(anoBissexto);
@@ -100,5 +104,16 @@ public final class DataUtils {
             return -1;
 
         }
+    }
+
+    public static int receberEntrada(String args) {
+
+        String dataInteresse = args.substring(0, 8);
+        int anoBissexto = Integer.parseInt(args.substring(9, 13));
+        String dataReferencia = args.substring(14, 22);
+        int diaDaSemanaReferencia = Integer.parseInt(args.substring(23));
+
+        return calcularData(dataInteresse, anoBissexto, dataReferencia, diaDaSemanaReferencia);
+
     }
 }

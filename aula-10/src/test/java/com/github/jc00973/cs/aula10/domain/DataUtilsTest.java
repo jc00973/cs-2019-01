@@ -1,5 +1,7 @@
 package com.github.jc00973.cs.aula10.domain;
 
+import com.github.jc00973.cs.aula10.application.console.Programa;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -70,6 +72,21 @@ public class DataUtilsTest {
         assertEquals(3, DataUtils.calcularData("20191130", 2018, "20191129", 2));
         assertEquals(3, DataUtils.calcularData("20191201", 2018, "20191130", 2));
         assertEquals(3, DataUtils.calcularData("20191230", 2018, "20191229", 2));
+        assertEquals(4, DataUtils.calcularData("20190131", 2018, "20190201", 5));
+        assertEquals(4, DataUtils.calcularData("20190229", 2019, "20190301", 5));
+        assertEquals(4, DataUtils.calcularData("20190228", 2018, "20190301", 5));
+        assertEquals(4, DataUtils.calcularData("20190331", 2019, "20190401", 5));
+        assertEquals(4, DataUtils.calcularData("20190430", 2019, "20190501", 5));
+        assertEquals(4, DataUtils.calcularData("20190531", 2019, "20190601", 5));
+        assertEquals(4, DataUtils.calcularData("20190630", 2019, "20190701", 5));
+        assertEquals(4, DataUtils.calcularData("20190731", 2019, "20190801", 5));
+        assertEquals(4, DataUtils.calcularData("20190831", 2019, "20190901", 5));
+        assertEquals(4, DataUtils.calcularData("20190930", 2019, "20191001", 5));
+        assertEquals(4, DataUtils.calcularData("20191031", 2019, "20191101", 5));
+        assertEquals(4, DataUtils.calcularData("20191130", 2019, "20191201", 5));
+        assertEquals(4, DataUtils.calcularData("20181130", 2017, "20191130", 5));
+        assertEquals(1, DataUtils.calcularData("20191101", 2019, "20191001", 5));
+        assertEquals(0, DataUtils.calcularData("20191130", 2019, "20181130", 5));
 
     }
 
