@@ -70,7 +70,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.jc00973.cs.aula10.domain.DataUtils
+            com.github.jc00973.cs.aula08.domain.DataUtils
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
