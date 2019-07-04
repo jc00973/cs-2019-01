@@ -1,4 +1,4 @@
-package inteiro.src.main.java.com.github.jc00973.cs.aula8.domain;
+package jpeg.src.main.java.com.github.jc00973.cs.aula8.domain;
 
 import java.io.DataInputStream;
 import java.io.File;
