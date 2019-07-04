@@ -1,6 +1,4 @@
-package inteiro.src.main.java.com.github.jc00973.cs.aula8.application.console;
-
-import inteiro.src.main.java.com.github.jc00973.cs.aula8.domain.ExibeQuatroBytesUtils;
+package jpeg.src.main.java.com.github.jc00973.cs.aula8.application.console;
 
 import java.io.IOException;
 
@@ -23,10 +21,10 @@ public final class Programa {
     public static void main(final String[] args) throws IOException {
 
 
-        final String resultado = ExibeQuatroBytesUtils.imprimirQuatroBytes(args[0]);
-        final int resulInt = Integer.parseInt(resultado);
+        //final String resultado = ExibeQuatroBytesUtils.imprimirQuatroBytes(args[0]);
+        //final int resulInt = Integer.parseInt(resultado);
 
-        System.out.write(resulInt);
+        //System.out.write(resulInt);
     }
 
 }

@@ -1,7 +1,6 @@
-package inteiro.src.test.java.com.github.jc00973.cs.aula8.domain;
+package jpeg.src.test.java.com.github.jc00973.cs.aula8.domain;
 
-import inteiro.src.main.java.com.github.jc00973.cs.aula8.domain.ExibeQuatroBytesUtils;
-import inteiro.src.main.java.com.github.jc00973.cs.aula8.application.console.Programa;
+import jpeg.src.main.java.com.github.jc00973.cs.aula8.domain.VerificadorJpegUtils;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -27,20 +26,8 @@ public class ProgramaTest {
 
     @Test
     public void testHex() throws IOException {
-        assertEquals("45737465",
-                ExibeQuatroBytesUtils.imprimirQuatroBytes(getFilename("frase.txt")));
+        assertEquals("ok",
+                VerificadorJpegUtils.ehJpeg(getFilename("minion.jpeg")));
 
-        assertEquals("cafebabe",
-                ExibeQuatroBytesUtils.imprimirQuatroBytes(getFilename("AlgoritmosVetor.class")));
-
-        assertThrows(IllegalArgumentException.class,() ->
-                ExibeQuatroBytesUtils.imprimirQuatroBytes(getFilename("vazio.txt")));
-
-    }
-
-    @Test
-    public void testMain() throws IOException {
-        String[] args = {getFilename("frase.txt")};
-        Programa.main(args);
     }
 }
